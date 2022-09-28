@@ -20,6 +20,7 @@ public class HumanResources {
     private String posTitle;
     private String cellPhn;
     private String emailAdd;
+    private String photo;
 
     public String getName() {
         return name;
@@ -100,6 +101,16 @@ public class HumanResources {
     public void setEmailAdd(String emailAdd) {
         this.emailAdd = emailAdd;
     }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+    
+    
     
     //as per the error shown in jTable first column has printed irrelevant value plus our value from
     //create employee screen. In order to workaround that issue, we do below:
