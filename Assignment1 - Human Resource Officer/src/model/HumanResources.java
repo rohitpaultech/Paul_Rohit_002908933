@@ -21,6 +21,8 @@ public class HumanResources {
     private String cellPhn;
     private String emailAdd;
     private String photo;
+    
+    //priate Image photo;
 
     public String getName() {
         return name;

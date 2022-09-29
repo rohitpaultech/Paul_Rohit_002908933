@@ -235,7 +235,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         String posTitle = txtPosTitle.getText();
         String cellPhn = txtCellPhn.getText();
         String emailAdd = txtEmailAdd.getText();
-        String photo = imgOk;
+        String photo = getSelectedImage;
+        
         
         HumanResources hr = history.addNewHREmp();
         hr.setName(name);
@@ -267,9 +268,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblPhotoDisplay.setIcon(img);
         
         
-        
-        
-        
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseActionPerformed
@@ -292,6 +290,7 @@ public class CreateJPanel extends javax.swing.JPanel {
             ImageIcon img = new ImageIcon(getSelectedImage);
             Image imgSizing = img.getImage();
             Image imgOk = imgSizing.getScaledInstance(lblPhotoDisplay.getWidth(), lblPhotoDisplay.getHeight(), Image.SCALE_SMOOTH);
+            
             lblPhotoDisplay.setIcon(new ImageIcon(imgOk));
         }
         
