@@ -43,4 +43,13 @@ public class HumanResourcesHistory {
         
     }
     
+    public HumanResources getUpdateValues(String name){
+        for(HumanResources hrs: history){
+            if(hrs.getEmpId().equals(name)){
+                return hrs;
+            }
+        }
+        return null;
+    }
+    
 }

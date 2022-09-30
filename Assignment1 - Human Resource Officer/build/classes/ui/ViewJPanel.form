@@ -33,6 +33,8 @@
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Component id="txtSearchBar" min="-2" pref="344" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnUpdate" linkSize="1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnView" linkSize="1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnDelete" linkSize="1" min="-2" max="-2" attributes="0"/>
@@ -103,8 +105,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnView" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnView" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnDelete" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnUpdate" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -190,16 +193,46 @@
         <Component class="javax.swing.JTable" name="tblHumanResoures">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="5" rowCount="4">
+              <Table columnCount="10" rowCount="4">
                 <Column editable="false" title="Name" type="java.lang.Object"/>
                 <Column editable="false" title="Employee ID" type="java.lang.Object"/>
                 <Column editable="false" title="Age" type="java.lang.Object"/>
-                <Column editable="true" title="Gender" type="java.lang.Object"/>
-                <Column editable="true" title="Start Date" type="java.lang.Object"/>
+                <Column editable="false" title="Gender" type="java.lang.Object"/>
+                <Column editable="false" title="Start Date" type="java.lang.Object"/>
+                <Column editable="false" title="Level" type="java.lang.Object"/>
+                <Column editable="false" title="Team Info" type="java.lang.Object"/>
+                <Column editable="false" title="Position Title" type="java.lang.Object"/>
+                <Column editable="false" title="Cell Phone Number" type="java.lang.Object"/>
+                <Column editable="false" title="Email Address" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
@@ -231,6 +264,9 @@
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblHumanResouresMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -346,6 +382,14 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSearchBarActionPerformed"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchBarKeyPressed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnUpdate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Update"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

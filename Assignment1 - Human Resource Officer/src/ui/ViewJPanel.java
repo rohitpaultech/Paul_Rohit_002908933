@@ -6,6 +6,7 @@ package ui;
 
 
 import java.awt.Image;
+import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -25,6 +26,8 @@ import model.HumanResourcesHistory;
 public class ViewJPanel extends javax.swing.JPanel {
 
     HumanResourcesHistory history;
+     
+    
     
    
     public ViewJPanel(HumanResourcesHistory history) {
@@ -74,6 +77,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         lblPhotoDisplay = new javax.swing.JLabel();
         lblPhoto = new javax.swing.JLabel();
         txtSearchBar = new javax.swing.JTextField();
+        btnUpdate = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(205, 254, 204));
 
@@ -84,21 +88,26 @@ public class ViewJPanel extends javax.swing.JPanel {
 
         tblHumanResoures.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "Employee ID", "Age", "Gender", "Start Date"
+                "Name", "Employee ID", "Age", "Gender", "Start Date", "Level", "Team Info", "Position Title", "Cell Phone Number", "Email Address"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, true
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tblHumanResoures.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblHumanResouresMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tblHumanResoures);
@@ -160,6 +169,13 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -175,6 +191,8 @@ public class ViewJPanel extends javax.swing.JPanel {
                         .addGap(6, 6, 6)
                         .addComponent(txtSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnUpdate)
+                        .addGap(18, 18, 18)
                         .addComponent(btnView)
                         .addGap(18, 18, 18)
                         .addComponent(btnDelete)
@@ -215,7 +233,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                         .addGap(154, 154, 154))))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnDelete, btnView});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnDelete, btnUpdate, btnView});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,7 +254,8 @@ public class ViewJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnView)
-                            .addComponent(btnDelete))))
+                            .addComponent(btnDelete)
+                            .addComponent(btnUpdate))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -281,6 +300,9 @@ public class ViewJPanel extends javax.swing.JPanel {
                             .addComponent(txtEmailAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnDelete, btnUpdate, btnView});
+
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgeActionPerformed
@@ -329,6 +351,10 @@ public class ViewJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel)tblHumanResoures.getModel();
        HumanResources selectedEmp = (HumanResources)model.getValueAt(selectedRowIndex, 0);
        
+       HumanResources updatedValues = (HumanResources)model.getValueAt(selectedRowIndex, 0);
+       
+       
+       
        txtName.setText(selectedEmp.getName()); //Note: If you define Name as double in HumanResources class, this line of code will throw error.
        //java throws error that says "double cannot be converted to string" since also setText is of string.
        //in order to over come this issue we use this line of code: txtName.setText(String.valueOf(selectedEmp.getName()));
@@ -343,6 +369,7 @@ public class ViewJPanel extends javax.swing.JPanel {
        txtPosTitle.setText(selectedEmp.getPosTitle());
        txtCellPhn.setText(selectedEmp.getCellPhn());
        txtEmailAdd.setText(selectedEmp.getEmailAdd());
+     
        
         
        //below chunk is to display my saved photo to viewjpanel
@@ -375,9 +402,88 @@ public class ViewJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_txtSearchBarKeyPressed
 
+    private void tblHumanResouresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblHumanResouresMouseClicked
+        // below code did not work properly hence commenting the whole chunk.
+        
+        //DefaultTableModel tblModel = (DefaultTableModel)tblHumanResoures.getModel();
+        //now setting data to textfields when a row selected
+        //String tblName = tblModel.getValueAt(tblHumanResoures.getSelectedRow(), 0).toString();
+        //String tblEmployeeID = tblModel.getValueAt(tblHumanResoures.getSelectedRow(), 0).toString();
+        //String tblAge = tblModel.getValueAt(tblHumanResoures.getSelectedRow(), 0).toString();
+        //String tblGender = tblModel.getValueAt(tblHumanResoures.getSelectedRow(), 0).toString();
+        //String tblStartDate = tblModel.getValueAt(tblHumanResoures.getSelectedRow(), 0).toString();
+   
+        //txtName.setText(tblName);
+        //txtEmpId.setText(tblEmployeeID);
+        //txtAge.setText(tblAge);
+        //txtGendr.setText(tblGender);
+        //txtStrtDate.setText(tblStartDate);
+        
+        
+    }//GEN-LAST:event_tblHumanResouresMouseClicked
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        //here i will get the table model
+        DefaultTableModel tblModel = (DefaultTableModel)tblHumanResoures.getModel();
+        if(tblHumanResoures.getSelectedRowCount()==1){
+            //if i select a single row then should update
+            String name = txtName.getText();
+            String empid = txtEmpId.getText();
+            String age = txtAge.getText();
+            String gender = txtGendr.getText();
+            String startdate = txtStrtDate.getText();
+            String level = txtLvl.getText();
+            String teaminfo = txtTmInfo.getText();
+            String positiontitle = txtPosTitle.getText();
+            String cellphonenumber = txtCellPhn.getText();
+            String emailaddress = txtEmailAdd.getText();
+            
+            HumanResources hrupdate = history.getUpdateValues(empid);
+            hrupdate.setName(name);
+            hrupdate.setAge(age);
+            hrupdate.setGendr(gender);
+            hrupdate.setStrtDate(startdate);
+            hrupdate.setLvl(level);
+            hrupdate.setTmInfo(teaminfo);
+            hrupdate.setPosTitle(positiontitle);
+            hrupdate.setCellPhn(cellphonenumber);
+            hrupdate.setEmailAdd(emailaddress);
+            populateTable();
+            
+            
+            
+            
+            //to set updated value on table row
+            //tblModel.setValueAt(name, tblHumanResoures.getSelectedRow(), 0);
+            //tblModel.setValueAt(empid, tblHumanResoures.getSelectedRow(), 1);
+            //tblModel.setValueAt(age, tblHumanResoures.getSelectedRow(), 2);
+            //tblModel.setValueAt(gender, tblHumanResoures.getSelectedRow(), 3);
+            //tblModel.setValueAt(startdate, tblHumanResoures.getSelectedRow(), 4);
+            //tblModel.setValueAt(level, tblHumanResoures.getSelectedRow(), 5);
+            //tblModel.setValueAt(teaminfo, tblHumanResoures.getSelectedRow(), 6);
+            //tblModel.setValueAt(positiontitle, tblHumanResoures.getSelectedRow(), 7);
+            //tblModel.setValueAt(cellphonenumber, tblHumanResoures.getSelectedRow(), 8);
+            //tblModel.setValueAt(emailaddress, tblHumanResoures.getSelectedRow(), 9);
+            
+            
+            //now insert a diplay message for updation
+            JOptionPane.showMessageDialog(this, "Update done successfully!");
+        } else{
+            if(tblHumanResoures.getRowCount()==0){
+                //this is when a table is empty and update button is clicked
+                JOptionPane.showMessageDialog(this, "Table is empty.");
+            } else{
+                //this is when a table has records but user has not selected a record and clicks on update button
+                JOptionPane.showMessageDialog(this, "Please select atleast one row for updation.");
+            }
+        }
+        
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnView;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAge;
@@ -419,13 +525,19 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         for(HumanResources hr : history.getHistory()){
             
-            Object[] row = new Object[5];  //in order to show lines in the jTable design we use a small array of objects with 3 members
+            Object[] row = new Object[10];  //in order to show lines in the jTable design we use a small array of objects with 3 members
             //one for each column
             row[0] = hr;
             row[1] = hr.getEmpId();
             row[2] = hr.getAge();
             row[3] = hr.getGendr();
             row[4] = hr.getStrtDate();
+            row[5] = hr.getLvl();
+            row[6] = hr.getTmInfo();
+            row[7] = hr.getPosTitle();
+            row[8] = hr.getCellPhn();
+            row[9] = hr.getEmailAdd();
+            
            
            model.addRow(row);
         }
