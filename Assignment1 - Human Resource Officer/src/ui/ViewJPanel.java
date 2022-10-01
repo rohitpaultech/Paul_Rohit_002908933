@@ -361,13 +361,13 @@ public class ViewJPanel extends javax.swing.JPanel {
        //But because we never defined our variable as double or anyother type other than string, we did notget an error in line 272.
        
        txtEmpId.setText(selectedEmp.getEmpId());
-       txtAge.setText(selectedEmp.getAge());
+       txtAge.setText(String.valueOf(selectedEmp.getAge())); // corrected this line since i change my datatype from humanresources class
        txtGendr.setText(selectedEmp.getGendr());
        txtStrtDate.setText(selectedEmp.getStrtDate());
-       txtLvl.setText(selectedEmp.getLvl());
+       txtLvl.setText(String.valueOf(selectedEmp.getLvl())); // corrected this line since i change my datatype from humanresources class
        txtTmInfo.setText(selectedEmp.getTmInfo());
        txtPosTitle.setText(selectedEmp.getPosTitle());
-       txtCellPhn.setText(selectedEmp.getCellPhn());
+       txtCellPhn.setText(String.valueOf(selectedEmp.getCellPhn())); // corrected this line since i change my datatype from humanresources class
        txtEmailAdd.setText(selectedEmp.getEmailAdd());
      
        
@@ -429,20 +429,20 @@ public class ViewJPanel extends javax.swing.JPanel {
             //if i select a single row then should update
             String name = txtName.getText();
             String empid = txtEmpId.getText();
-            String age = txtAge.getText();
+            int age = Integer.parseInt(txtAge.getText()); //String age = txtAge.getText(); ---> corrected this line since i change my datatype from humanresources class
             String gender = txtGendr.getText();
-            String startdate = txtStrtDate.getText();
-            String level = txtLvl.getText();
+            String strtDate = txtStrtDate.getText();
+            short level = Short.parseShort(txtLvl.getText()); // corrected this line since i change my datatype from humanresources class
             String teaminfo = txtTmInfo.getText();
             String positiontitle = txtPosTitle.getText();
-            String cellphonenumber = txtCellPhn.getText();
+            long cellphonenumber = Long.parseLong(txtCellPhn.getText()); // corrected this line since i change my datatype from humanresources class
             String emailaddress = txtEmailAdd.getText();
             
             HumanResources hrupdate = history.getUpdateValues(empid);
             hrupdate.setName(name);
             hrupdate.setAge(age);
             hrupdate.setGendr(gender);
-            hrupdate.setStrtDate(startdate);
+            hrupdate.setStrtDate(strtDate);
             hrupdate.setLvl(level);
             hrupdate.setTmInfo(teaminfo);
             hrupdate.setPosTitle(positiontitle);
@@ -452,7 +452,7 @@ public class ViewJPanel extends javax.swing.JPanel {
             
             
             
-            
+            //BELOW CODE IS COMMENTED SINCE I FIGURED ITS UNNECESSARY
             //to set updated value on table row
             //tblModel.setValueAt(name, tblHumanResoures.getSelectedRow(), 0);
             //tblModel.setValueAt(empid, tblHumanResoures.getSelectedRow(), 1);

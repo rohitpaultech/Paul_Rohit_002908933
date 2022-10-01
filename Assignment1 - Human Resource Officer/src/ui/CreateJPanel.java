@@ -227,15 +227,16 @@ public class CreateJPanel extends javax.swing.JPanel {
         
         String name = txtName.getText();
         String empId = txtEmpId.getText();
-        String age = txtAge.getText();
+        int age = Integer.parseInt(txtAge.getText());
         String gendr = txtGendr.getText();
         String strtDate = txtStrtDate.getText();
-        String lvl = txtLvl.getText();
+        short lvl = Short.parseShort(txtLvl.getText());
         String tmInfo = txtTmInfo.getText();
         String posTitle = txtPosTitle.getText();
-        String cellPhn = txtCellPhn.getText();
+        long cellPhn = Long.parseLong(txtCellPhn.getText());
         String emailAdd = txtEmailAdd.getText();
         String photo = getSelectedImage;
+        
         
         
         HumanResources hr = history.addNewHREmp();

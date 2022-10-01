@@ -12,13 +12,13 @@ public class HumanResources {
     
     private String name;
     private String empId;
-    private String age;
+    private int age;
     private String gendr;
     private String strtDate;
-    private String lvl;
+    private short lvl;
     private String tmInfo;
     private String posTitle;
-    private String cellPhn;
+    private long cellPhn;
     private String emailAdd;
     private String photo;
     
@@ -40,11 +40,11 @@ public class HumanResources {
         this.empId = empId;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -64,11 +64,11 @@ public class HumanResources {
         this.strtDate = strtDate;
     }
 
-    public String getLvl() {
+    public short getLvl() {
         return lvl;
     }
 
-    public void setLvl(String lvl) {
+    public void setLvl(short lvl) {
         this.lvl = lvl;
     }
 
@@ -88,11 +88,11 @@ public class HumanResources {
         this.posTitle = posTitle;
     }
 
-    public String getCellPhn() {
+    public long getCellPhn() {
         return cellPhn;
     }
 
-    public void setCellPhn(String cellPhn) {
+    public void setCellPhn(long cellPhn) {
         this.cellPhn = cellPhn;
     }
 
