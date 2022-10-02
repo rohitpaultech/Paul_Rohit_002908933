@@ -33,11 +33,11 @@
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Component id="txtSearchBar" min="-2" pref="344" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnUpdate" linkSize="1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnView" linkSize="1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnDelete" linkSize="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnUpdate" linkSize="3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnView" linkSize="3" min="-2" pref="114" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <Component id="btnDelete" linkSize="3" min="-2" pref="114" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">

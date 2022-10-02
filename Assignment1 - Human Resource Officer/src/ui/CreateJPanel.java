@@ -524,7 +524,7 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void txtPosTitleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPosTitleKeyReleased
         // my data validation code for position title field:
-        String convention = "^[a-zA-Z]{0,30}$";
+        String convention = "^[a-z A-Z]{0,30}$";
         Pattern ptt = Pattern.compile(convention);
         Matcher match = ptt.matcher(txtPosTitle.getText());
         if(!match.matches()){
