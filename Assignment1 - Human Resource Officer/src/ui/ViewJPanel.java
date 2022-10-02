@@ -37,6 +37,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         //im creating a method that will populate the jTable after creation of employees
         
         populateTable();
+        vaninshData();
         
     }
 
@@ -330,7 +331,8 @@ public class ViewJPanel extends javax.swing.JPanel {
        
        JOptionPane.showMessageDialog(this, "Employee data deleted successfully!");
        
-       populateTable();
+       populateTable(); 
+       vaninshData(); 
        
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -355,20 +357,20 @@ public class ViewJPanel extends javax.swing.JPanel {
        
        
        
-       txtName.setText(selectedEmp.getName()); //Note: If you define Name as double in HumanResources class, this line of code will throw error.
+       txtName.setText(updatedValues.getName()); //Note: If you define Name as double in HumanResources class, this line of code will throw error.
        //java throws error that says "double cannot be converted to string" since also setText is of string.
        //in order to over come this issue we use this line of code: txtName.setText(String.valueOf(selectedEmp.getName()));
        //But because we never defined our variable as double or anyother type other than string, we did notget an error in line 272.
        
-       txtEmpId.setText(selectedEmp.getEmpId());
-       txtAge.setText(String.valueOf(selectedEmp.getAge())); // corrected this line since i change my datatype from humanresources class
-       txtGendr.setText(selectedEmp.getGendr());
-       txtStrtDate.setText(selectedEmp.getStrtDate());
-       txtLvl.setText(String.valueOf(selectedEmp.getLvl())); // corrected this line since i change my datatype from humanresources class
-       txtTmInfo.setText(selectedEmp.getTmInfo());
-       txtPosTitle.setText(selectedEmp.getPosTitle());
-       txtCellPhn.setText(String.valueOf(selectedEmp.getCellPhn())); // corrected this line since i change my datatype from humanresources class
-       txtEmailAdd.setText(selectedEmp.getEmailAdd());
+       txtEmpId.setText(updatedValues.getEmpId());
+       txtAge.setText(String.valueOf(updatedValues.getAge())); // corrected this line since i change my datatype from humanresources class
+       txtGendr.setText(updatedValues.getGendr());
+       txtStrtDate.setText(updatedValues.getStrtDate());
+       txtLvl.setText(updatedValues.getLvl()); // corrected this line since i change my datatype from humanresources class
+       txtTmInfo.setText(updatedValues.getTmInfo());
+       txtPosTitle.setText(updatedValues.getPosTitle());
+       txtCellPhn.setText(String.valueOf(updatedValues.getCellPhn())); // corrected this line since i change my datatype from humanresources class
+       txtEmailAdd.setText(updatedValues.getEmailAdd());
      
        
         
@@ -379,7 +381,9 @@ public class ViewJPanel extends javax.swing.JPanel {
             
             lblPhotoDisplay.setIcon(new ImageIcon(imgOk));
         
-        
+            
+            
+           
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void txtSearchBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchBarActionPerformed
@@ -399,6 +403,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
         tblHumanResoures.setRowSorter(sorter);
         sorter.setRowFilter(RowFilter.regexFilter(txtSearchBar.getText().trim()));
+        
+        
         
     }//GEN-LAST:event_txtSearchBarKeyPressed
 
@@ -429,13 +435,13 @@ public class ViewJPanel extends javax.swing.JPanel {
             //if i select a single row then should update
             String name = txtName.getText();
             String empid = txtEmpId.getText();
-            int age = Integer.parseInt(txtAge.getText()); //String age = txtAge.getText(); ---> corrected this line since i change my datatype from humanresources class
+            int age = Integer.parseInt(txtAge.getText()); //String age = txtAge.getText(); ---> corrected this line since i changed my datatype in humanresources class
             String gender = txtGendr.getText();
             String strtDate = txtStrtDate.getText();
-            short level = Short.parseShort(txtLvl.getText()); // corrected this line since i change my datatype from humanresources class
+            String level = txtLvl.getText(); 
             String teaminfo = txtTmInfo.getText();
             String positiontitle = txtPosTitle.getText();
-            long cellphonenumber = Long.parseLong(txtCellPhn.getText()); // corrected this line since i change my datatype from humanresources class
+            long cellphonenumber = Long.parseLong(txtCellPhn.getText()); // corrected this line since i change my datatype in humanresources class
             String emailaddress = txtEmailAdd.getText();
             
             HumanResources hrupdate = history.getUpdateValues(empid);
@@ -452,7 +458,7 @@ public class ViewJPanel extends javax.swing.JPanel {
             
             
             
-            //BELOW CODE IS COMMENTED SINCE I FIGURED ITS UNNECESSARY
+            //BELOW CODE IS COMMENTED SINCE I FIGURED IT UNNECESSARY
             //to set updated value on table row
             //tblModel.setValueAt(name, tblHumanResoures.getSelectedRow(), 0);
             //tblModel.setValueAt(empid, tblHumanResoures.getSelectedRow(), 1);
@@ -525,7 +531,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         for(HumanResources hr : history.getHistory()){
             
-            Object[] row = new Object[10];  //in order to show lines in the jTable design we use a small array of objects with 3 members
+            Object[] row = new Object[10];  //in order to show lines in the jTable design we use a small array of objects with 10 members
             //one for each column
             row[0] = hr;
             row[1] = hr.getEmpId();
@@ -541,6 +547,23 @@ public class ViewJPanel extends javax.swing.JPanel {
            
            model.addRow(row);
         }
+        
+    }
+
+    private void vaninshData() {
+        //method for clearing data
+        txtName.setText("");
+        txtEmpId.setText("");
+        txtAge.setText("");
+        txtGendr.setText("");
+        txtStrtDate.setText("");
+        txtLvl.setText("");
+        txtTmInfo.setText("");
+        txtPosTitle.setText("");
+        txtCellPhn.setText("");
+        txtEmailAdd.setText("");
+        ImageIcon img = new ImageIcon();
+        lblPhotoDisplay.setIcon(img);
         
     }
 }

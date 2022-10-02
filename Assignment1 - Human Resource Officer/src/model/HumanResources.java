@@ -15,7 +15,7 @@ public class HumanResources {
     private int age;
     private String gendr;
     private String strtDate;
-    private short lvl;
+    private String lvl;
     private String tmInfo;
     private String posTitle;
     private long cellPhn;
@@ -64,11 +64,11 @@ public class HumanResources {
         this.strtDate = strtDate;
     }
 
-    public short getLvl() {
+    public String getLvl() {
         return lvl;
     }
 
-    public void setLvl(short lvl) {
+    public void setLvl(String lvl) {
         this.lvl = lvl;
     }
 
