@@ -89,7 +89,7 @@
                                   <Component id="msgLabel9" pref="175" max="32767" attributes="0"/>
                                   <Component id="msgLabel10" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="254" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="268" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -218,7 +218,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblStrtDate">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Start Date:"/>
+        <Property name="text" type="java.lang.String" value="Start Date (MM/DD/YYYY):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblLvl">

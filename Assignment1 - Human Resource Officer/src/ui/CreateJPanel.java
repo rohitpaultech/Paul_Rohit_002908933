@@ -92,7 +92,7 @@ public class CreateJPanel extends javax.swing.JPanel {
 
         lblGendr.setText("Gender:");
 
-        lblStrtDate.setText("Start Date:");
+        lblStrtDate.setText("Start Date (MM/DD/YYYY):");
 
         lblLvl.setText("Level:");
 
@@ -279,7 +279,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(msgLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
                                     .addComponent(msgLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(0, 254, Short.MAX_VALUE))))
+                                .addGap(0, 268, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(169, 169, 169)
                         .addComponent(btnSave)))

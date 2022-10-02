@@ -299,7 +299,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblEmailAdd)
                             .addComponent(txtEmailAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnDelete, btnUpdate, btnView});
@@ -351,9 +351,9 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         //the below process is to get to the HumanResources object, in order to that, we get the model as below
         DefaultTableModel model = (DefaultTableModel)tblHumanResoures.getModel();
-       HumanResources selectedEmp = (HumanResources)model.getValueAt(selectedRowIndex, 0);
+       HumanResources selectedEmp = (HumanResources)tblHumanResoures.getValueAt(tblHumanResoures.getSelectedRow(), 0);
        
-       HumanResources updatedValues = (HumanResources)model.getValueAt(selectedRowIndex, 0);
+       HumanResources updatedValues = (HumanResources)tblHumanResoures.getValueAt(tblHumanResoures.getSelectedRow(), 0);
        
        
        
