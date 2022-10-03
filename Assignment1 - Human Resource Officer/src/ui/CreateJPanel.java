@@ -458,7 +458,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtEmpIdKeyReleased
 
     private void txtAgeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgeKeyReleased
-        // my data validation code for employee id field:
+        // my data validation code for age field:
         String convention = "^[0-9]{0,2}$";
         Pattern ptt = Pattern.compile(convention);
         Matcher match = ptt.matcher(txtAge.getText());

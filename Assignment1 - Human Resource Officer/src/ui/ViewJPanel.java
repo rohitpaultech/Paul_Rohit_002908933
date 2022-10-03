@@ -325,7 +325,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         }
         //the below process is to get to the HumanResources object, in order to that, we get the model as below
         DefaultTableModel model = (DefaultTableModel)tblHumanResoures.getModel();
-       HumanResources selectedEmp = (HumanResources)model.getValueAt(selectedRowIndex, 0);
+       HumanResources selectedEmp = (HumanResources)tblHumanResoures.getValueAt(tblHumanResoures.getSelectedRow(), 0);
+               //model.getValueAt(selectedRowIndex, 0);
         
        history.deleteEmp(selectedEmp);
        
