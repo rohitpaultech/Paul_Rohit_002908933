@@ -29,8 +29,8 @@ public class PatientDirectory {
         this.patientlist = patientlist;
     }
     
-    public Patient addNewPatient(EncounterHistory encounterHistory){
-        Patient newPat = new Patient(encounterHistory);
+    public Patient addNewPatient(){
+        Patient newPat = new Patient();
         patientlist.add(newPat);
         return newPat;
     }

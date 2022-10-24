@@ -5,13 +5,14 @@
 package VitalsPackage;
 
 import EncounterPackage.EncounterHistory;
+import PatientPackage.Patient;
 import PersonPackage.Person;
 
 /**
  *
  * @author Rohit Paul G
  */
-public class VitalSigns {
+public class VitalSigns extends Patient {
     
     private EncounterHistory encounterHistory;
     private Person person;
@@ -20,14 +21,14 @@ public class VitalSigns {
     private String bloodPressure;
     private String medicines;
 
-    public VitalSigns(EncounterHistory encounterHistory, Person person, String diagnosis, String temperature, String bloodPressure, String medicines) {
-        this.encounterHistory = encounterHistory;
-        this.person = person;
-        this.diagnosis = diagnosis;
-        this.temperature = temperature;
-        this.bloodPressure = bloodPressure;
-        this.medicines = medicines;
-    }
+    //public VitalSigns(EncounterHistory encounterHistory, Person person, String diagnosis, String temperature, String bloodPressure, String medicines) {
+      //  this.encounterHistory = encounterHistory;
+        //this.person = person;
+        //this.diagnosis = diagnosis;
+        //this.temperature = temperature;
+        //this.bloodPressure = bloodPressure;
+        //this.medicines = medicines;
+    //}
 
     public EncounterHistory getEncounterHistory() {
         return encounterHistory;

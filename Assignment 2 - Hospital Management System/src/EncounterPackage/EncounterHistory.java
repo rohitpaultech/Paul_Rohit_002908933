@@ -27,8 +27,8 @@ public class EncounterHistory {
         this.encounterList = encounterList;
     }
     
-    public Encounter addNewEncounter(Person person, String patientId, String listOfDoctors, String bloodType, String admitDate, String symptoms){
-        Encounter enc = new Encounter(person, patientId, listOfDoctors, bloodType, admitDate, symptoms);
+    public Encounter addNewEncounter(){
+        Encounter enc = new Encounter();
         encounterList.add(enc);
         return enc;
     }

@@ -28,8 +28,8 @@ public class VitalSignsHistory {
         this.vitalslist = vitalslist;
     }
     
-    public VitalSigns addNewVitalSigns(EncounterHistory encounterHistory, Person person, String diagnosis, String temperature, String bloodPressure, String medicines){
-        VitalSigns vsigns = new VitalSigns(encounterHistory, person, diagnosis, temperature, bloodPressure, medicines);
+    public VitalSigns addNewVitalSigns(){
+        VitalSigns vsigns = new VitalSigns();
         vitalslist.add(vsigns);
         return vsigns;
     }

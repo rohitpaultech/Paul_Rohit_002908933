@@ -10,7 +10,7 @@ package PersonPackage;
  */
 public class Person {
     //my person attributes
-    private String fName;
+    public String fName;
     private String lName;
     private int age;
     private String dateOfBirth;
@@ -28,24 +28,24 @@ public class Person {
     
     //creating a constructor for all said attributes
 
-    public Person(String fName, String lName, int age, String dateOfBirth, double height, float weight, String mobilePhn, String roles, String hospital, String city, String community, String userName, String passWord, String houseAddress) {
-        this.fName = fName;
-        this.lName = lName;
-        this.age = age;
-        this.dateOfBirth = dateOfBirth;
-        this.height = height;
-        this.weight = weight;
-        this.mobilePhn = mobilePhn;
-        this.roles = roles;
-        this.hospital = hospital;
-        this.city = city;
-        this.community = community;
-        this.userName = userName;
-        this.passWord = passWord;
-        this.houseAddress = houseAddress;
-    }
+    //public Person(String fName, String lName, int age, String dateOfBirth, double height, float weight, String mobilePhn, String roles, String hospital, String city, String community, String userName, String passWord, String houseAddress) {
+        //this.fName = fName;
+        //this.lName = lName;
+        //this.age = age;
+        //this.dateOfBirth = dateOfBirth;
+        //this.height = height;
+        //this.weight = weight;
+        //this.mobilePhn = mobilePhn;
+        //this.roles = roles;
+        //this.hospital = hospital;
+        //this.city = city;
+        //this.community = community;
+        //this.userName = userName;
+        //this.passWord = passWord;
+        //this.houseAddress = houseAddress;
+    //}
 
-    
+
 
    
     //creating getters and setters for the said attributes
@@ -162,15 +162,6 @@ public class Person {
         this.houseAddress = houseAddress;
     }
 
-   
-
-    
-
-    
-    
-    
-    
-    
-            
+              
     
 }

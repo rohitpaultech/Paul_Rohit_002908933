@@ -26,9 +26,15 @@ public class PersonDirectory {
         this.personlist = personlist;
     }
     
-    public Person addNewPerson(String fName, String lName, int age, String dateOfBirth, double height, float weight, String mobilePhn, String roles, String hospital, String city, String community, String userName, String passWord, String houseAddress){
+    //public Person addNewPerson(String fName, String lName, int age, String dateOfBirth, double height, float weight, String mobilePhn, String roles, String hospital, String city, String community, String userName, String passWord, String houseAddress){
         
-        Person np = new Person(fName, lName, age, dateOfBirth, height, weight, mobilePhn, roles, hospital, city, community, userName, passWord, houseAddress);
+        //Person np = new Person(fName, lName, age, dateOfBirth, height, weight, mobilePhn, roles, hospital, city, community, userName, passWord, houseAddress);
+        //personlist.add(np);
+        //return np;
+    //}
+    
+    public Person addNewPerson(){
+        Person np = new Person();
         personlist.add(np);
         return np;
     }

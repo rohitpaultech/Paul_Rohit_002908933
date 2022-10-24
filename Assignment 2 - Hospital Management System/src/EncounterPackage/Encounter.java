@@ -4,37 +4,38 @@
  */
 package EncounterPackage;
 
+import PatientPackage.Patient;
 import PersonPackage.Person;
 
 /**
  *
  * @author Rohit Paul G
  */
-public class Encounter {
+public class Encounter extends Patient {
         
-    private Person person;
+    //private Person person;
     private String patientId;
     private String listOfDoctors;
     private String bloodType;
     private String admitDate;
     private String symptoms;
 
-    public Encounter(Person person, String patientId, String listOfDoctors, String bloodType, String admitDate, String symptoms) {
-        this.person = person;
-        this.patientId = patientId;
-        this.listOfDoctors = listOfDoctors;
-        this.bloodType = bloodType;
-        this.admitDate = admitDate;
-        this.symptoms = symptoms;
-    }
+    //public Encounter(Person person, String patientId, String listOfDoctors, String bloodType, String admitDate, String symptoms) {
+      //  this.person = person;
+        //this.patientId = patientId;
+        //this.listOfDoctors = listOfDoctors;
+        //this.bloodType = bloodType;
+        //this.admitDate = admitDate;
+        //this.symptoms = symptoms;
+    //}
 
-    public Person getPerson() {
-        return person;
-    }
+    //public Person getPerson() {
+      //  return person;
+    //}
 
-    public void setPerson(Person person) {
-        this.person = person;
-    }
+    //public void setPerson(Person person) {
+      //  this.person = person;
+    //}
 
     public String getPatientId() {
         return patientId;

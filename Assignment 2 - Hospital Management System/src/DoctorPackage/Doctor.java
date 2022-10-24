@@ -5,18 +5,19 @@
 package DoctorPackage;
 
 import EncounterPackage.EncounterHistory;
+import PersonPackage.Person;
 
 /**
  *
  * @author Rohit Paul G
  */
-public class Doctor {
+public class Doctor extends Person {
     
     private EncounterHistory encounterHistory;
 
-    public Doctor(EncounterHistory encounterHistory) {
-        this.encounterHistory = encounterHistory;
-    }
+    //public Doctor(EncounterHistory encounterHistory) {
+      //  this.encounterHistory = encounterHistory;
+    //}
 
     public EncounterHistory getEncounterHistory() {
         return encounterHistory;
