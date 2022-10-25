@@ -4,8 +4,8 @@
  */
 package VitalsPackage;
 
-import EncounterPackage.EncounterHistory;
-import PersonPackage.Person;
+//import EncounterPackage.EncounterHistory;
+//import PersonPackage.Person;
 import java.util.ArrayList;
 
 /**

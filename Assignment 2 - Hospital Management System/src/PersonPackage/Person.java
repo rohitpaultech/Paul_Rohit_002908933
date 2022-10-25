@@ -16,7 +16,7 @@ public class Person {
     private String dateOfBirth;
     private double height;
     private float weight;
-    private String mobilePhn;
+    private long mobilePhn;
     private String roles;
     private String hospital;
     private String city;
@@ -98,11 +98,11 @@ public class Person {
         this.weight = weight;
     }
 
-    public String getMobilePhn() {
+    public long getMobilePhn() {
         return mobilePhn;
     }
 
-    public void setMobilePhn(String mobilePhn) {
+    public void setMobilePhn(long mobilePhn) {
         this.mobilePhn = mobilePhn;
     }
 

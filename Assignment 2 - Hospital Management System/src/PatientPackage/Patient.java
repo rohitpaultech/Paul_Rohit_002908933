@@ -4,7 +4,7 @@
  */
 package PatientPackage;
 
-import EncounterPackage.EncounterHistory;
+
 import PersonPackage.Person;
 
 
@@ -14,7 +14,13 @@ import PersonPackage.Person;
  */
 public class Patient extends Person {
     
-    private EncounterHistory encounterHistory;
+    private String patientId;
+    private String listOfDoctors;
+    private String bloodType;
+    private String admitDate;
+    private String symptoms;
+    
+    //private EncounterHistory encounterHistory;
     //private Person person;
 
     //public Patient(EncounterHistory encounterHistory) {
@@ -28,15 +34,50 @@ public class Patient extends Person {
         
     //}
 
+    public String getPatientId() {
+        return patientId;
+    }
+
+    public void setPatientId(String patientId) {
+        this.patientId = patientId;
+    }
+
+    public String getListOfDoctors() {
+        return listOfDoctors;
+    }
+
+    public void setListOfDoctors(String listOfDoctors) {
+        this.listOfDoctors = listOfDoctors;
+    }
+
+    public String getBloodType() {
+        return bloodType;
+    }
+
+    public void setBloodType(String bloodType) {
+        this.bloodType = bloodType;
+    }
+
+    public String getAdmitDate() {
+        return admitDate;
+    }
+
+    public void setAdmitDate(String admitDate) {
+        this.admitDate = admitDate;
+    }
+
+    public String getSymptoms() {
+        return symptoms;
+    }
+
+    public void setSymptoms(String symptoms) {
+        this.symptoms = symptoms;
+    }
     
 
-    public EncounterHistory getEncounterHistory() {
-        return encounterHistory;
-    }
+    
 
-    public void setEncounterHistory(EncounterHistory encounterHistory) {
-        this.encounterHistory = encounterHistory;
-    }
+    
 
     
     

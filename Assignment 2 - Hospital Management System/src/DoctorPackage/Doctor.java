@@ -4,7 +4,7 @@
  */
 package DoctorPackage;
 
-import EncounterPackage.EncounterHistory;
+//import EncounterPackage.EncounterHistory;
 import PersonPackage.Person;
 
 /**
@@ -13,19 +13,31 @@ import PersonPackage.Person;
  */
 public class Doctor extends Person {
     
-    private EncounterHistory encounterHistory;
+    //private EncounterHistory encounterHistory;
+    private String diagnosis;
+    private String medicines;
 
     //public Doctor(EncounterHistory encounterHistory) {
       //  this.encounterHistory = encounterHistory;
     //}
 
-    public EncounterHistory getEncounterHistory() {
-        return encounterHistory;
+    public String getDiagnosis() {
+        return diagnosis;
     }
 
-    public void setEncounterHistory(EncounterHistory encounterHistory) {
-        this.encounterHistory = encounterHistory;
+    public void setDiagnosis(String diagnosis) {
+        this.diagnosis = diagnosis;
     }
+
+    public String getMedicines() {
+        return medicines;
+    }
+
+    public void setMedicines(String medicines) {
+        this.medicines = medicines;
+    }
+
+    
     
     
     

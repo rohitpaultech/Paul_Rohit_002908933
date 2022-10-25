@@ -4,7 +4,7 @@
  */
 package EncounterPackage;
 
-import PersonPackage.Person;
+//import PersonPackage.Person;
 import java.util.ArrayList;
 
 /**

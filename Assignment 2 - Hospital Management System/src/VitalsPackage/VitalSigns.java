@@ -4,9 +4,9 @@
  */
 package VitalsPackage;
 
-import EncounterPackage.EncounterHistory;
+//import EncounterPackage.EncounterHistory;
 import PatientPackage.Patient;
-import PersonPackage.Person;
+//import PersonPackage.Person;
 
 /**
  *
@@ -14,12 +14,13 @@ import PersonPackage.Person;
  */
 public class VitalSigns extends Patient {
     
-    private EncounterHistory encounterHistory;
-    private Person person;
-    private String diagnosis;
+    //private EncounterHistory encounterHistory;
+    //private Person person;
+    //private String diagnosis;
     private String temperature;
     private String bloodPressure;
-    private String medicines;
+    private int heartRate; 
+    //private String medicines;
 
     //public VitalSigns(EncounterHistory encounterHistory, Person person, String diagnosis, String temperature, String bloodPressure, String medicines) {
       //  this.encounterHistory = encounterHistory;
@@ -29,30 +30,6 @@ public class VitalSigns extends Patient {
         //this.bloodPressure = bloodPressure;
         //this.medicines = medicines;
     //}
-
-    public EncounterHistory getEncounterHistory() {
-        return encounterHistory;
-    }
-
-    public void setEncounterHistory(EncounterHistory encounterHistory) {
-        this.encounterHistory = encounterHistory;
-    }
-
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
-
-    public String getDiagnosis() {
-        return diagnosis;
-    }
-
-    public void setDiagnosis(String diagnosis) {
-        this.diagnosis = diagnosis;
-    }
 
     public String getTemperature() {
         return temperature;
@@ -70,14 +47,14 @@ public class VitalSigns extends Patient {
         this.bloodPressure = bloodPressure;
     }
 
-    public String getMedicines() {
-        return medicines;
+    public int getHeartRate() {
+        return heartRate;
     }
 
-    public void setMedicines(String medicines) {
-        this.medicines = medicines;
+    public void setHeartRate(int heartRate) {
+        this.heartRate = heartRate;
     }
-    
+
     
     
 }

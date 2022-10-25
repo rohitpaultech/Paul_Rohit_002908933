@@ -4,21 +4,19 @@
  */
 package EncounterPackage;
 
-import PatientPackage.Patient;
-import PersonPackage.Person;
+//import PatientPackage.Patient;
+//import PersonPackage.Person;
+import VitalsPackage.VitalSigns;
 
 /**
  *
  * @author Rohit Paul G
  */
-public class Encounter extends Patient {
+public class Encounter extends VitalSigns {
         
     //private Person person;
-    private String patientId;
-    private String listOfDoctors;
-    private String bloodType;
-    private String admitDate;
-    private String symptoms;
+    private String encounterId;
+    private String encounterTime;
 
     //public Encounter(Person person, String patientId, String listOfDoctors, String bloodType, String admitDate, String symptoms) {
       //  this.person = person;
@@ -37,45 +35,23 @@ public class Encounter extends Patient {
       //  this.person = person;
     //}
 
-    public String getPatientId() {
-        return patientId;
+    public String getEncounterId() {
+        return encounterId;
     }
 
-    public void setPatientId(String patientId) {
-        this.patientId = patientId;
+    public void setEncounterId(String encounterId) {
+        this.encounterId = encounterId;
     }
 
-    public String getListOfDoctors() {
-        return listOfDoctors;
+    public String getEncounterTime() {
+        return encounterTime;
     }
 
-    public void setListOfDoctors(String listOfDoctors) {
-        this.listOfDoctors = listOfDoctors;
+    public void setEncounterTime(String encounterTime) {
+        this.encounterTime = encounterTime;
     }
 
-    public String getBloodType() {
-        return bloodType;
-    }
-
-    public void setBloodType(String bloodType) {
-        this.bloodType = bloodType;
-    }
-
-    public String getAdmitDate() {
-        return admitDate;
-    }
-
-    public void setAdmitDate(String admitDate) {
-        this.admitDate = admitDate;
-    }
-
-    public String getSymptoms() {
-        return symptoms;
-    }
-
-    public void setSymptoms(String symptoms) {
-        this.symptoms = symptoms;
-    }
+    
     
     
     
