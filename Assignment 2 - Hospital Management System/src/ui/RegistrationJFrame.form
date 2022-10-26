@@ -188,13 +188,20 @@
                                               <Component id="lblcommunity" min="-2" max="-2" attributes="0"/>
                                               <Component id="lblhouseAddress" alignment="1" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="txtmobilePhn" pref="237" max="32767" attributes="0"/>
-                                              <Component id="jComboBoxroles" min="-2" pref="148" max="-2" attributes="0"/>
-                                              <Component id="jComboBoxcity" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtcommunity" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="txthouseAddress" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="txtmobilePhn" pref="237" max="32767" attributes="0"/>
+                                                      <Component id="jComboBoxcity" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="txtcommunity" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="txthouseAddress" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="jComboBoxroles" min="-2" pref="148" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
@@ -353,6 +360,9 @@
         <Component class="javax.swing.JTextField" name="txtuserName">
         </Component>
         <Component class="javax.swing.JPasswordField" name="pwdpassWord">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pwdpassWordActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnRegister">
           <Properties>
@@ -472,7 +482,10 @@
         <Component class="javax.swing.JComboBox" name="jComboBoxroleshospital">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
+              <StringArray count="2">
+                <StringItem index="0" value="Cristo Es Dios GH"/>
+                <StringItem index="1" value="Cristo Es Dios GH subsidiary"/>
+              </StringArray>
             </Property>
           </Properties>
           <AuxValues>

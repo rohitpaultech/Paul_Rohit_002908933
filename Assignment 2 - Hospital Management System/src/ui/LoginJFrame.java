@@ -4,18 +4,27 @@
  */
 package ui;
 
+import DoctorPackage.Doctor;
+import PersonPackage.Person;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
+import static ui.RegistrationJFrame.docDr;
+import static ui.RegistrationJFrame.patDr;
 
 /**
  *
  * @author Rohit Paul G
  */
 public class LoginJFrame extends javax.swing.JFrame {
-
+    public static Person per = new Person();
     /**
      * Creates new form LoginJFrame
      */
+    
     public LoginJFrame() {
+        
         initComponents();
         this.setLocationRelativeTo(null); //shows the login page in the center of screen
     }
@@ -116,6 +125,11 @@ public class LoginJFrame extends javax.swing.JFrame {
         btnSignIn.setBackground(new java.awt.Color(3, 201, 169));
         btnSignIn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnSignIn.setText("Sign In");
+        btnSignIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignInActionPerformed(evt);
+            }
+        });
 
         lblOr.setText("or");
 
@@ -212,8 +226,67 @@ public class LoginJFrame extends javax.swing.JFrame {
         rgf.setLocationRelativeTo(null);
         rgf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
+        
     }//GEN-LAST:event_lblRegistrationMouseClicked
 
+    private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
+        // TODO add your handling code here:
+        //RegistrationJFrame.usernameANDpassword.con
+        //String passWord = pwdPassword.getText();
+        //String userName = txtUsername.getText();
+        
+        //if (passWord.equals(passWord) && doc.equals(passWord)){
+          //  pwdPassword.setText(null);
+        //}
+        //else if (userName.equals(userName) && doc.equals(userName)){
+          //  txtUsername.setText(null);
+        //}
+        
+        //JOptionPane.showMessageDialog(this, "Entity login successful!");
+        
+        Person pdata = checkMyPerson();
+        Doctor ddata = checkMyDoctor();
+        
+        if (pdata!=null || ddata!=null){
+            if (pdata.getRoles() == "Patient"){
+                //JOptionPane.showMessageDialog(this, "New entity 'Patient' logged in!");
+                PatientWorkAreaJFrame patWorkArea = new PatientWorkAreaJFrame();
+                patWorkArea.setVisible(true);
+                patWorkArea.pack();
+                patWorkArea.setLocationRelativeTo(null);
+                patWorkArea.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                this.dispose();
+            }
+            else if (ddata.getRoles() == "Doctor"){
+               JOptionPane.showMessageDialog(this, "New entity 'Doctor' logged in!"); 
+            }
+        }    
+           
+    }//GEN-LAST:event_btnSignInActionPerformed
+
+    public  Person checkMyPerson(){
+        
+        for(Person p : patDr.getPatientlist()){
+            if (p.getUserName().equals(txtUsername.getText()) && p.getPassWord().equals(String.valueOf(pwdPassword.getPassword()))){
+                System.out.println(p.getUserName());
+                per = p;
+            }
+        }
+        return per;
+    }
+    
+    public Doctor checkMyDoctor(){
+        Doctor doc = new Doctor();
+        for (Doctor d : docDr.getDoctorList()){
+            if (d.getUserName().equals(txtUsername.getText()) && d.getPassWord().equals(String.valueOf(pwdPassword.getPassword()))){
+                System.out.println(d.getUserName());
+                doc = d;
+            }
+        }
+        return doc;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */

@@ -5,6 +5,10 @@
 package ui;
 
 
+import DoctorPackage.Doctor;
+import DoctorPackage.DoctorDirectory;
+import PatientPackage.Patient;
+import PatientPackage.PatientDirectory;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,6 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,12 +32,15 @@ public class RegistrationJFrame extends javax.swing.JFrame {
      * Creates new form RegistrationJFrame
      */
     
+    public static DoctorDirectory docDr = new DoctorDirectory();
+    public static PatientDirectory patDr = new PatientDirectory();
+    
     // the file path -> C:\Users\1BestCsharp\Desktop\java_app
-    String usersFilePath = "C:\\Users\\Rohit Paul G\\OneDrive\\Desktop\\userdata.txt";   
+    //String usersFilePath = "C:\\Users\\Rohit Paul G\\OneDrive\\Desktop\\userdata.txt";   
     //array of all usernames
-    ArrayList<String> all_usernames = new ArrayList<>();
+    //ArrayList<String> all_usernames = new ArrayList<>();
     //a hashmap of usernames and password
-    Map<String, String> usernameANDpassword = new HashMap<>();
+    //static Map<String, String> usernameANDpassword = new HashMap<>();
     
     public RegistrationJFrame() {
         initComponents();
@@ -171,6 +179,12 @@ public class RegistrationJFrame extends javax.swing.JFrame {
         lblpassWord.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lblpassWord.setText("Password:");
 
+        pwdpassWord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pwdpassWordActionPerformed(evt);
+            }
+        });
+
         btnRegister.setBackground(new java.awt.Color(3, 201, 169));
         btnRegister.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnRegister.setText("Register");
@@ -208,6 +222,8 @@ public class RegistrationJFrame extends javax.swing.JFrame {
 
         lblhospital.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lblhospital.setText("Hospital:");
+
+        jComboBoxroleshospital.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cristo Es Dios GH", "Cristo Es Dios GH subsidiary" }));
 
         lblcity.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lblcity.setText("City:");
@@ -269,13 +285,17 @@ public class RegistrationJFrame extends javax.swing.JFrame {
                                             .addComponent(lblcity)
                                             .addComponent(lblcommunity)
                                             .addComponent(lblhouseAddress))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtmobilePhn, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                                            .addComponent(jComboBoxroles, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jComboBoxcity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtcommunity)
-                                            .addComponent(txthouseAddress)))
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGap(18, 18, 18)
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(txtmobilePhn, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                                                    .addComponent(jComboBoxcity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtcommunity)
+                                                    .addComponent(txthouseAddress)))
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jComboBoxroles, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(lblhospital)
                                         .addGap(18, 18, 18)
@@ -406,22 +426,64 @@ public class RegistrationJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_lblCloseWindowMouseClicked
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        // getting the text fields data:
-        String fName = txtfName.getText();
-        String lName = txtlName.getText();
-        int age = Integer.parseInt(txtage.getText());
-        SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
-        String dateOfBirth = dateformat.format(jDateChooserdateOfBirth.getDate());
-        double height = Double.parseDouble(txtheight.getText());
-        float weight = Float.parseFloat(txtweight.getText());
-        long mobilePhn = Long.parseLong(txtmobilePhn.getText());
-        String roles = jComboBoxroles.getSelectedItem().toString(); //casts the object within the combobox to string
-        String hospital = jComboBoxroleshospital.getSelectedItem().toString(); //same as above
-        String city = jComboBoxcity.getSelectedItem().toString();
-        String community = txtcommunity.getText();
-        String houseAddress = txthouseAddress.getText();
-        String userName = txtuserName.getText();
-        String passWord = String.valueOf(pwdpassWord.getPassword());
+        
+        if (jComboBoxroles.getSelectedItem().toString().equals("Doctor")){
+            Doctor doc = docDr.addNewDoctor();
+            doc.setfName(txtfName.getText());
+            doc.setlName(txtlName.getText());
+            doc.setAge(Integer.parseInt(txtage.getText()));
+            doc.setDateOfBirth(jDateChooserdateOfBirth.getDateFormatString());
+            doc.setHeight(Double.parseDouble(txtheight.getText()));
+            doc.setWeight(Float.parseFloat(txtweight.getText()));
+            doc.setMobilePhn(Long.parseLong(txtmobilePhn.getText()));
+            doc.setRoles(jComboBoxroles.getSelectedItem().toString());
+            doc.setHospital(jComboBoxroleshospital.getSelectedItem().toString());
+            doc.setCity(jComboBoxcity.getSelectedItem().toString());
+            doc.setCommunity(txtcommunity.getText());
+            doc.setHouseAddress(txthouseAddress.getText());
+            doc.setUserName(txtuserName.getText());
+            doc.setPassWord(String.valueOf(pwdpassWord.getPassword()));
+        }
+        else if (jComboBoxroles.getSelectedItem().toString().equals("Patient")){
+            Patient pat = patDr.addNewPatient();
+            pat.setfName(txtfName.getText());
+            pat.setlName(txtlName.getText());
+            pat.setAge(Integer.parseInt(txtage.getText()));
+            pat.setDateOfBirth(jDateChooserdateOfBirth.getDateFormatString());
+            pat.setHeight(Double.parseDouble(txtheight.getText()));
+            pat.setWeight(Float.parseFloat(txtweight.getText()));
+            pat.setMobilePhn(Long.parseLong(txtmobilePhn.getText()));
+            pat.setRoles(jComboBoxroles.getSelectedItem().toString());
+            pat.setHospital(jComboBoxroleshospital.getSelectedItem().toString());
+            pat.setCity(jComboBoxcity.getSelectedItem().toString());
+            pat.setCommunity(txtcommunity.getText());
+            pat.setHouseAddress(txthouseAddress.getText());
+            pat.setUserName(txtuserName.getText());
+            pat.setPassWord(String.valueOf(pwdpassWord.getPassword()));
+        }
+        
+        JOptionPane.showMessageDialog(this, "New entity Added!");
+        
+        vanishData();
+        
+        
+
+// getting the text fields data:
+        //String fName = txtfName.getText();
+        //String lName = txtlName.getText();
+        //int age = Integer.parseInt(txtage.getText());
+        //SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+        //String dateOfBirth = dateformat.format(jDateChooserdateOfBirth.getDate());
+        //double height = Double.parseDouble(txtheight.getText());
+        //float weight = Float.parseFloat(txtweight.getText());
+        //long mobilePhn = Long.parseLong(txtmobilePhn.getText());
+        //String roles = jComboBoxroles.getSelectedItem().toString(); //casts the object within the combobox to string
+        //String hospital = jComboBoxroleshospital.getSelectedItem().toString(); //same as above
+        //String city = jComboBoxcity.getSelectedItem().toString();
+        //String community = txtcommunity.getText();
+        //String houseAddress = txthouseAddress.getText();
+        //String userName = txtuserName.getText();
+        //String passWord = String.valueOf(pwdpassWord.getPassword());
         
         
         
@@ -436,6 +498,10 @@ public class RegistrationJFrame extends javax.swing.JFrame {
         lgf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_lblbackToSignInMouseClicked
+
+    private void pwdpassWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdpassWordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pwdpassWordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -510,4 +576,18 @@ public class RegistrationJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtuserName;
     private javax.swing.JTextField txtweight;
     // End of variables declaration//GEN-END:variables
+
+    private void vanishData() {
+        txtfName.setText("");
+        txtlName.setText("");
+        txtage.setText("");
+        jDateChooserdateOfBirth.setDateFormatString("");
+        txtheight.setText("");
+        txtweight.setText("");
+        txtmobilePhn.setText("");
+        txtcommunity.setText("");
+        txthouseAddress.setText("");
+        txtuserName.setText("");
+        pwdpassWord.setText("");
+    }
 }
