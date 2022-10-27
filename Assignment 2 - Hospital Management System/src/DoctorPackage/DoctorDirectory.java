@@ -29,11 +29,12 @@ public class DoctorDirectory {
         this.doctorList = doctorList;
     }
     
-    public Doctor addNewDoctor(){
-        Doctor doc = new Doctor();
-        doctorList.add(doc);
-        return doc;
+    public void addNewDoctor(Doctor doctor){ // (Patient patient)
+        
+        doctorList.add(doctor); //patientlist.add(patient)
+        
     }
+
     
     
     

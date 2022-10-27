@@ -5,6 +5,9 @@
 package ui;
 
 import DoctorPackage.Doctor;
+import DoctorPackage.DoctorDirectory;
+import EncounterPackage.EncounterHistory;
+import PatientPackage.Patient;
 import PersonPackage.Person;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -19,6 +22,9 @@ import static ui.RegistrationJFrame.patDr;
  */
 public class LoginJFrame extends javax.swing.JFrame {
     public static Person per = new Person();
+    public static Doctor doc = new Doctor(); 
+    
+    
     /**
      * Creates new form LoginJFrame
      */
@@ -245,9 +251,9 @@ public class LoginJFrame extends javax.swing.JFrame {
         //JOptionPane.showMessageDialog(this, "Entity login successful!");
         
         Person pdata = checkMyPerson();
-        Doctor ddata = checkMyDoctor();
+        Doctor ddata = checkMyDoctor(); //Doctor ddata = checkMyDoctor();
         
-        if (pdata!=null || ddata!=null){
+        if (pdata!=null||ddata!=null){  //pdata!=null||ddata!=null
             if (pdata.getRoles() == "Patient"){
                 //JOptionPane.showMessageDialog(this, "New entity 'Patient' logged in!");
                 PatientWorkAreaJFrame patWorkArea = new PatientWorkAreaJFrame();
@@ -255,17 +261,25 @@ public class LoginJFrame extends javax.swing.JFrame {
                 patWorkArea.pack();
                 patWorkArea.setLocationRelativeTo(null);
                 patWorkArea.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                
                 this.dispose();
             }
             else if (ddata.getRoles() == "Doctor"){
-               JOptionPane.showMessageDialog(this, "New entity 'Doctor' logged in!"); 
+                //the below code to be changed to include for DoctorWorkAreaJFrame
+               //PatientWorkAreaJFrame patWorkArea = new PatientWorkAreaJFrame();
+                //patWorkArea.setVisible(true);
+                JOptionPane.showMessageDialog(this, "Doctor is logged in!");
+                //patWorkArea.pack();
+                //patWorkArea.setLocationRelativeTo(null);
+                //patWorkArea.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                //this.dispose();
             }
         }    
            
     }//GEN-LAST:event_btnSignInActionPerformed
 
     public  Person checkMyPerson(){
-        
+        //for(Person p : patDr.getPatientlist()){
         for(Person p : patDr.getPatientlist()){
             if (p.getUserName().equals(txtUsername.getText()) && p.getPassWord().equals(String.valueOf(pwdPassword.getPassword()))){
                 System.out.println(p.getUserName());
@@ -275,9 +289,9 @@ public class LoginJFrame extends javax.swing.JFrame {
         return per;
     }
     
-    public Doctor checkMyDoctor(){
-        Doctor doc = new Doctor();
-        for (Doctor d : docDr.getDoctorList()){
+    public Doctor checkMyDoctor(){  
+        
+        for (Doctor d : docDr.getDoctorList()){  
             if (d.getUserName().equals(txtUsername.getText()) && d.getPassWord().equals(String.valueOf(pwdPassword.getPassword()))){
                 System.out.println(d.getUserName());
                 doc = d;

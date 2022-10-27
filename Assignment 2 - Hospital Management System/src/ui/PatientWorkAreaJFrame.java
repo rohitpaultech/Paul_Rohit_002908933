@@ -5,11 +5,16 @@
 package ui;
 
 import DoctorPackage.Doctor;
+import EncounterPackage.Encounter;
+import EncounterPackage.EncounterHistory;
 import PatientPackage.Patient;
 import PersonPackage.Person;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import static ui.LoginJFrame.doc;
 import static ui.LoginJFrame.per;
+import static ui.RegistrationJFrame.docDr;
 
 /**
  *
@@ -17,6 +22,14 @@ import static ui.LoginJFrame.per;
  */
 public class PatientWorkAreaJFrame extends javax.swing.JFrame {
     Person personToWorkWith = LoginJFrame.per;
+    Doctor doctorToWorkWith = LoginJFrame.doc;
+    EncounterHistory encounterList;
+    EncounterHistory encHist = new EncounterHistory();
+    
+    
+   
+    
+            //LoginJFrame.per;
     /**
      * Creates new form PatientWorkAreaJFrame
      */
@@ -25,7 +38,8 @@ public class PatientWorkAreaJFrame extends javax.swing.JFrame {
     public PatientWorkAreaJFrame() {
         initComponents();
         populateTable();
-        
+        displayData();
+        //PatientWork = displayData();
         
     }
     
@@ -119,17 +133,17 @@ public class PatientWorkAreaJFrame extends javax.swing.JFrame {
 
         PatientEncountersjTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "First Name", "Last Name", "Title 3", "Title 4"
+                "First Name", "Last Name", "Patient ID", "List Of Doctors", "Encounter ID", "Encounter Time", "Blood Type", "Admit Date", "Symptoms"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, false, true
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -158,12 +172,12 @@ public class PatientWorkAreaJFrame extends javax.swing.JFrame {
             .addGroup(PatientWorkLayout.createSequentialGroup()
                 .addGroup(PatientWorkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PatientWorkLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PatientWorkLayout.createSequentialGroup()
                         .addGap(242, 242, 242)
-                        .addComponent(btnCreateEncounter)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnCreateEncounter))
+                    .addGroup(PatientWorkLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         PatientWorkLayout.setVerticalGroup(
             PatientWorkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,6 +218,12 @@ public class PatientWorkAreaJFrame extends javax.swing.JFrame {
         lblPatientListOfDoctors.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblPatientListOfDoctors.setText("List Of Doctors:");
 
+        txtPatientListOfDoctors.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPatientListOfDoctorsActionPerformed(evt);
+            }
+        });
+
         lblPatientEncounterID.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblPatientEncounterID.setText("Encounter ID:");
 
@@ -223,6 +243,11 @@ public class PatientWorkAreaJFrame extends javax.swing.JFrame {
         btnSubmitEncounter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSubmitEncounterMouseClicked(evt);
+            }
+        });
+        btnSubmitEncounter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitEncounterActionPerformed(evt);
             }
         });
 
@@ -401,13 +426,35 @@ public class PatientWorkAreaJFrame extends javax.swing.JFrame {
 
     private void btnSubmitEncounterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitEncounterMouseClicked
         // TODO add your handling code here:
-        
-        txtPatientFName.setText(personToWorkWith.getfName());
-        txtPatientLName.setText(personToWorkWith.getlName());
-        txtPatientAge.setText(String.valueOf(personToWorkWith.getAge()));
-        txtPatientMobilePhn.setText(String.valueOf(personToWorkWith.getMobilePhn()));
+       Encounter enc = new Encounter();
+       
+       enc.setPatientId(txtPatientID.getText());
+       enc.setfName(txtPatientFName.getText());
+       enc.setlName(txtPatientLName.getText());
+       enc.setAge(Integer.parseInt(txtPatientAge.getText()));
+       enc.setMobilePhn(Long.parseLong(txtPatientMobilePhn.getText()));
+       enc.setListOfDoctors(txtPatientListOfDoctors.getSelectedItem().toString());
+       enc.setEncounterId(txtPatientEncounterID.getText());
+       enc.setEncounterTime(txtPatientEncounterTime.getText());
+       enc.setBloodType(txtPatientBloodType.getText());
+       enc.setAdmitDate(txtPatientAdmitDate.getText());
+       enc.setSymptoms(txtPatientSymptoms.getText());
+       encHist.addNewEncounter(enc);
+       
+       
+       JOptionPane.showMessageDialog(this, "New Encounter Added!");
+       
+       vanishDataInEncounterCreation();
          
     }//GEN-LAST:event_btnSubmitEncounterMouseClicked
+
+    private void btnSubmitEncounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitEncounterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSubmitEncounterActionPerformed
+
+    private void txtPatientListOfDoctorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatientListOfDoctorsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPatientListOfDoctorsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -477,7 +524,7 @@ public class PatientWorkAreaJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtPatientFName;
     private javax.swing.JTextField txtPatientID;
     private javax.swing.JTextField txtPatientLName;
-    private javax.swing.JComboBox<String> txtPatientListOfDoctors;
+    public static javax.swing.JComboBox<String> txtPatientListOfDoctors;
     private javax.swing.JTextField txtPatientMobilePhn;
     private javax.swing.JTextField txtPatientSymptoms;
     // End of variables declaration//GEN-END:variables
@@ -491,7 +538,52 @@ public class PatientWorkAreaJFrame extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel)PatientEncountersjTable.getModel();
         model.setRowCount(0); //deleting the empty records in our JTable
         
+        for (Encounter enco : encounterList.getEncounterList()){
+            Object[] row = new Object[9];
+            row[0] = enco.getfName();
+            row[1] = enco.getlName();//enco.getPatientId();
+            row[2] = enco.getPatientId();
+            row[3] = enco.getListOfDoctors();
+            row[4] = enco.getEncounterId();
+            row[5] = enco.getEncounterTime();
+            row[6] = enco.getBloodType();
+            row[7] = enco.getAdmitDate();
+            row[8] = enco.getSymptoms();
+            //row[9] = enco.getSymptoms();
+            
+            model.addRow(row);
+            
+        }
+        
         
         
     }
+
+    private void displayData() {
+        txtPatientFName.setText(personToWorkWith.getfName());
+        txtPatientLName.setText(personToWorkWith.getlName());
+        txtPatientAge.setText(String.valueOf(personToWorkWith.getAge()));
+        txtPatientMobilePhn.setText(String.valueOf(personToWorkWith.getMobilePhn()));
+        txtPatientListOfDoctors.addItem(doctorToWorkWith.getfName()); //(doctorToWorkWith.getfName());
+        for (Doctor d : docDr.getDoctorList()){
+            
+            txtPatientListOfDoctors.addItem(d.getfName());
+        }
+        
+    }
+
+    private void vanishDataInEncounterCreation() {
+        txtPatientID.setText("");
+        txtPatientFName.setText("");
+        txtPatientLName.setText("");
+        txtPatientAge.setText("");
+        txtPatientMobilePhn.setText("");
+        txtPatientEncounterID.setText("");
+        txtPatientEncounterTime.setText("");
+        txtPatientBloodType.setText("");
+        txtPatientAdmitDate.setText("");
+        txtPatientSymptoms.setText("");
+        
+    }
 }
+

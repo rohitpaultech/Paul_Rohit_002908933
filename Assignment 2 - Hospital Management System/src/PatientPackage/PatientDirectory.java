@@ -29,10 +29,10 @@ public class PatientDirectory {
         this.patientlist = patientlist;
     }
     
-    public Patient addNewPatient(){
-        Patient newPat = new Patient();
-        patientlist.add(newPat);
-        return newPat;
+    public void addNewPatient(Patient patient){ // (Patient patient)
+        
+        patientlist.add(patient); //patientlist.add(patient)
+        
     }
     
     

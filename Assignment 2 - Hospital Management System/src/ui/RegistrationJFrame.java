@@ -7,6 +7,7 @@ package ui;
 
 import DoctorPackage.Doctor;
 import DoctorPackage.DoctorDirectory;
+import EncounterPackage.EncounterHistory;
 import PatientPackage.Patient;
 import PatientPackage.PatientDirectory;
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import static ui.LoginJFrame.doc;
 
 /**
  *
@@ -34,6 +36,7 @@ public class RegistrationJFrame extends javax.swing.JFrame {
     
     public static DoctorDirectory docDr = new DoctorDirectory();
     public static PatientDirectory patDr = new PatientDirectory();
+    
     
     // the file path -> C:\Users\1BestCsharp\Desktop\java_app
     //String usersFilePath = "C:\\Users\\Rohit Paul G\\OneDrive\\Desktop\\userdata.txt";   
@@ -428,7 +431,8 @@ public class RegistrationJFrame extends javax.swing.JFrame {
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         
         if (jComboBoxroles.getSelectedItem().toString().equals("Doctor")){
-            Doctor doc = docDr.addNewDoctor();
+            //Doctor doc = new Doctor();
+            
             doc.setfName(txtfName.getText());
             doc.setlName(txtlName.getText());
             doc.setAge(Integer.parseInt(txtage.getText()));
@@ -443,9 +447,13 @@ public class RegistrationJFrame extends javax.swing.JFrame {
             doc.setHouseAddress(txthouseAddress.getText());
             doc.setUserName(txtuserName.getText());
             doc.setPassWord(String.valueOf(pwdpassWord.getPassword()));
+            docDr.addNewDoctor(doc);
+            //PatientWorkAreaJFrame.txtPatientListOfDoctors.addItem(txtfName.getText());
+            
         }
         else if (jComboBoxroles.getSelectedItem().toString().equals("Patient")){
-            Patient pat = patDr.addNewPatient();
+            Patient pat = new Patient();
+
             pat.setfName(txtfName.getText());
             pat.setlName(txtlName.getText());
             pat.setAge(Integer.parseInt(txtage.getText()));
@@ -460,6 +468,7 @@ public class RegistrationJFrame extends javax.swing.JFrame {
             pat.setHouseAddress(txthouseAddress.getText());
             pat.setUserName(txtuserName.getText());
             pat.setPassWord(String.valueOf(pwdpassWord.getPassword()));
+            patDr.addNewPatient(pat);
         }
         
         JOptionPane.showMessageDialog(this, "New entity Added!");

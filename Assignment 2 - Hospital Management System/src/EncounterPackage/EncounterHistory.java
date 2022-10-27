@@ -27,10 +27,10 @@ public class EncounterHistory {
         this.encounterList = encounterList;
     }
     
-    public Encounter addNewEncounter(){
-        Encounter enc = new Encounter();
-        encounterList.add(enc);
-        return enc;
+    public void addNewEncounter(Encounter encounter){
+        //Encounter enc = new Encounter();
+        encounterList.add(encounter);
+        //return enc;
     }
     
 
