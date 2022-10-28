@@ -12,7 +12,7 @@ import PersonPackage.Person;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import static ui.LoginJFrame.doc;
+//import static ui.LoginJFrame.doc;
 import static ui.LoginJFrame.per;
 import static ui.RegistrationJFrame.docDr;
 
@@ -24,7 +24,7 @@ public class PatientWorkAreaJFrame extends javax.swing.JFrame {
     Person personToWorkWith = LoginJFrame.per;
     Doctor doctorToWorkWith = LoginJFrame.doc;
     EncounterHistory encounterList;
-    EncounterHistory encHist = new EncounterHistory();
+   public static EncounterHistory encHist = new EncounterHistory();
     
     
    
@@ -37,7 +37,7 @@ public class PatientWorkAreaJFrame extends javax.swing.JFrame {
     
     public PatientWorkAreaJFrame() {
         initComponents();
-        populateTable();
+        
         displayData();
         //PatientWork = displayData();
         
@@ -172,11 +172,11 @@ public class PatientWorkAreaJFrame extends javax.swing.JFrame {
             .addGroup(PatientWorkLayout.createSequentialGroup()
                 .addGroup(PatientWorkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PatientWorkLayout.createSequentialGroup()
-                        .addGap(242, 242, 242)
-                        .addComponent(btnCreateEncounter))
-                    .addGroup(PatientWorkLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PatientWorkLayout.createSequentialGroup()
+                        .addGap(271, 271, 271)
+                        .addComponent(btnCreateEncounter)))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         PatientWorkLayout.setVerticalGroup(
@@ -186,9 +186,9 @@ public class PatientWorkAreaJFrame extends javax.swing.JFrame {
                 .addComponent(lblTitle)
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(94, 94, 94)
+                .addGap(90, 90, 90)
                 .addComponent(btnCreateEncounter)
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
 
         PatientWorkArea.add(PatientWork, "card2");
@@ -410,6 +410,9 @@ public class PatientWorkAreaJFrame extends javax.swing.JFrame {
         PatientWorkArea.add(AddEncounter);
         PatientWorkArea.repaint();
         PatientWorkArea.revalidate();
+        //Patient p = checkMyPerson()
+        //Patient rgfr = checkMyPatient();
+        
     }//GEN-LAST:event_btnCreateEncounterActionPerformed
 
     private void btnBackToPatientMainPageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackToPatientMainPageMouseClicked
@@ -418,6 +421,8 @@ public class PatientWorkAreaJFrame extends javax.swing.JFrame {
         PatientWorkArea.add(PatientWork);
         PatientWorkArea.repaint();
         PatientWorkArea.revalidate();
+        populateTable();
+        
     }//GEN-LAST:event_btnBackToPatientMainPageMouseClicked
 
     private void btnBackToPatientMainPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToPatientMainPageActionPerformed
@@ -528,7 +533,7 @@ public class PatientWorkAreaJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtPatientMobilePhn;
     private javax.swing.JTextField txtPatientSymptoms;
     // End of variables declaration//GEN-END:variables
-
+    
     private void populateTable() {
         
         //here i am using getModel whose type is TableModel which is used to manipulate our table
@@ -538,7 +543,8 @@ public class PatientWorkAreaJFrame extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel)PatientEncountersjTable.getModel();
         model.setRowCount(0); //deleting the empty records in our JTable
         
-        for (Encounter enco : encounterList.getEncounterList()){
+        if (encHist.getEncounterList()!= null){     //if (encounterList.getEncounterList()!= null){
+            for (Encounter enco : encHist.getEncounterList()) {//encounterList.getEncounterList()){
             Object[] row = new Object[9];
             row[0] = enco.getfName();
             row[1] = enco.getlName();//enco.getPatientId();
@@ -552,6 +558,8 @@ public class PatientWorkAreaJFrame extends javax.swing.JFrame {
             //row[9] = enco.getSymptoms();
             
             model.addRow(row);
+        }
+        
             
         }
         
@@ -564,7 +572,7 @@ public class PatientWorkAreaJFrame extends javax.swing.JFrame {
         txtPatientLName.setText(personToWorkWith.getlName());
         txtPatientAge.setText(String.valueOf(personToWorkWith.getAge()));
         txtPatientMobilePhn.setText(String.valueOf(personToWorkWith.getMobilePhn()));
-        txtPatientListOfDoctors.addItem(doctorToWorkWith.getfName()); //(doctorToWorkWith.getfName());
+        //txtPatientListOfDoctors.addItem(doctorToWorkWith.getfName()); //(doctorToWorkWith.getfName());
         for (Doctor d : docDr.getDoctorList()){
             
             txtPatientListOfDoctors.addItem(d.getfName());

@@ -17,6 +17,9 @@ import static ui.RegistrationJFrame.docDr;
 import static ui.RegistrationJFrame.patDr;
 
 /**
+import java.awt.event.WindowEvent;
+import static ui.RegistrationJFrame.docDr;
+import static ui.RegistrationJFrame.patDr;
  *
  * @author Rohit Paul G
  */
@@ -268,36 +271,41 @@ public class LoginJFrame extends javax.swing.JFrame {
                 //the below code to be changed to include for DoctorWorkAreaJFrame
                //PatientWorkAreaJFrame patWorkArea = new PatientWorkAreaJFrame();
                 //patWorkArea.setVisible(true);
-                JOptionPane.showMessageDialog(this, "Doctor is logged in!");
+                //JOptionPane.showMessageDialog(this, "Doctor is logged in!");
+                DoctorWorkAreaJFrame docWorkArea = new DoctorWorkAreaJFrame();
+                docWorkArea.setVisible(true);
+                docWorkArea.pack();
+                docWorkArea.setLocationRelativeTo(null);
+                docWorkArea.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 //patWorkArea.pack();
                 //patWorkArea.setLocationRelativeTo(null);
                 //patWorkArea.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                //this.dispose();
+                this.dispose();
             }
         }    
            
     }//GEN-LAST:event_btnSignInActionPerformed
 
     public  Person checkMyPerson(){
-        //for(Person p : patDr.getPatientlist()){
+        Person per1 = new Person();
         for(Person p : patDr.getPatientlist()){
             if (p.getUserName().equals(txtUsername.getText()) && p.getPassWord().equals(String.valueOf(pwdPassword.getPassword()))){
                 System.out.println(p.getUserName());
-                per = p;
+                per1 = p;
             }
         }
-        return per;
+        return per1;
     }
     
     public Doctor checkMyDoctor(){  
-        
+        Doctor doc1 = new Doctor();
         for (Doctor d : docDr.getDoctorList()){  
             if (d.getUserName().equals(txtUsername.getText()) && d.getPassWord().equals(String.valueOf(pwdPassword.getPassword()))){
                 System.out.println(d.getUserName());
-                doc = d;
+                doc1 = d;
             }
         }
-        return doc;
+        return doc1;
     }
     
     

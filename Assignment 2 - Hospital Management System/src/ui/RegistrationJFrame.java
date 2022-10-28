@@ -431,7 +431,7 @@ public class RegistrationJFrame extends javax.swing.JFrame {
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         
         if (jComboBoxroles.getSelectedItem().toString().equals("Doctor")){
-            //Doctor doc = new Doctor();
+            Doctor doc = new Doctor();
             
             doc.setfName(txtfName.getText());
             doc.setlName(txtlName.getText());
