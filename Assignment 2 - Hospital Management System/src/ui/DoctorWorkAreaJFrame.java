@@ -5,7 +5,11 @@
 package ui;
 
 import EncounterPackage.Encounter;
+import EncounterPackage.EncounterHistory;
+import VitalsPackage.VitalSigns;
+import VitalsPackage.VitalSignsHistory;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import static ui.PatientWorkAreaJFrame.encHist;
 
@@ -15,6 +19,7 @@ import static ui.PatientWorkAreaJFrame.encHist;
  */
 public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
 
+    public static VitalSignsHistory vsignsHist = new VitalSignsHistory();
     /**
      * Creates new form DoctorWorkAreaJFrame
      */
@@ -65,22 +70,22 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
         ViewVitalsArea = new javax.swing.JPanel();
         btnBackToDoctorMainPage = new javax.swing.JButton();
         lblDoctorViewVitalSigns = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        lblVitalSignsPatientFName = new javax.swing.JLabel();
+        lblVitalSignsPatientEncounterID = new javax.swing.JLabel();
+        lblVitalSignsPatientEncounterTime = new javax.swing.JLabel();
+        lblVitalSignsPatientEncounterBloodType = new javax.swing.JLabel();
+        lblVitalSignsPatientEncounterSymptoms = new javax.swing.JLabel();
+        lblVitalSignsPatientTemperature = new javax.swing.JLabel();
+        lblVitalSignsPatientBloodPressure = new javax.swing.JLabel();
+        lblVitalSignsPatientHeartRate = new javax.swing.JLabel();
+        txtVitalSignsPatientFName = new javax.swing.JTextField();
+        txtVitalSignsPatientEncounterID = new javax.swing.JTextField();
+        txtVitalSignsPatientEncounterTime = new javax.swing.JTextField();
+        txtVitalSignsPatientEncounterBloodType = new javax.swing.JTextField();
+        txtVitalSignsPatientEncounterSymptoms = new javax.swing.JTextField();
+        txtVitalSignsPatientTemperature = new javax.swing.JTextField();
+        txtVitalSignsPatientBloodPressure = new javax.swing.JTextField();
+        txtVitalSignsPatientHeartRate = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -143,6 +148,11 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(PatientEncountersjTableForDoctors);
 
         btnViewEncountersForDoctor.setText("View Encounters");
+        btnViewEncountersForDoctor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnViewEncountersForDoctorMouseClicked(evt);
+            }
+        });
 
         lblPatientEncounterFName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblPatientEncounterFName.setText("Patient Name:");
@@ -176,8 +186,18 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
         lblheartRate.setText("Heart Rate:");
 
         btnSaveVitalSigns.setText("Save Vitals");
+        btnSaveVitalSigns.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSaveVitalSignsMouseClicked(evt);
+            }
+        });
 
         btnViewVitalSigns.setText("View Vitals");
+        btnViewVitalSigns.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnViewVitalSignsMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout DoctorWorkLayout = new javax.swing.GroupLayout(DoctorWork);
         DoctorWork.setLayout(DoctorWorkLayout);
@@ -307,37 +327,29 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
         lblDoctorViewVitalSigns.setForeground(new java.awt.Color(51, 102, 0));
         lblDoctorViewVitalSigns.setText("~ View Vitals ~");
 
-        jLabel1.setText("jLabel1");
+        lblVitalSignsPatientFName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblVitalSignsPatientFName.setText("Patient Name:");
 
-        jLabel2.setText("jLabel2");
+        lblVitalSignsPatientEncounterID.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblVitalSignsPatientEncounterID.setText("Patient Encounter ID:");
 
-        jLabel3.setText("jLabel3");
+        lblVitalSignsPatientEncounterTime.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblVitalSignsPatientEncounterTime.setText("Patient Encounter Time:");
 
-        jLabel4.setText("jLabel4");
+        lblVitalSignsPatientEncounterBloodType.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblVitalSignsPatientEncounterBloodType.setText("Patient Blood Type:");
 
-        jLabel5.setText("jLabel5");
+        lblVitalSignsPatientEncounterSymptoms.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblVitalSignsPatientEncounterSymptoms.setText("Patient's Symptoms:");
 
-        jLabel6.setText("jLabel6");
+        lblVitalSignsPatientTemperature.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblVitalSignsPatientTemperature.setText("Recorded Temperature:");
 
-        jLabel7.setText("jLabel7");
+        lblVitalSignsPatientBloodPressure.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblVitalSignsPatientBloodPressure.setText("Recorded Blood Pressure:");
 
-        jLabel8.setText("jLabel8");
-
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setText("jTextField2");
-
-        jTextField3.setText("jTextField3");
-
-        jTextField4.setText("jTextField4");
-
-        jTextField5.setText("jTextField5");
-
-        jTextField6.setText("jTextField6");
-
-        jTextField7.setText("jTextField7");
-
-        jTextField8.setText("jTextField8");
+        lblVitalSignsPatientHeartRate.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblVitalSignsPatientHeartRate.setText("Recorded Heart Rate:");
 
         javax.swing.GroupLayout ViewVitalsAreaLayout = new javax.swing.GroupLayout(ViewVitalsArea);
         ViewVitalsArea.setLayout(ViewVitalsAreaLayout);
@@ -352,75 +364,71 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
                         .addGap(315, 315, 315)
                         .addComponent(lblDoctorViewVitalSigns))
                     .addGroup(ViewVitalsAreaLayout.createSequentialGroup()
-                        .addGap(157, 157, 157)
+                        .addGap(117, 117, 117)
                         .addGroup(ViewVitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8))
-                        .addGap(27, 27, 27)
+                            .addComponent(lblVitalSignsPatientEncounterBloodType)
+                            .addComponent(lblVitalSignsPatientTemperature)
+                            .addComponent(lblVitalSignsPatientBloodPressure)
+                            .addComponent(lblVitalSignsPatientHeartRate)
+                            .addComponent(lblVitalSignsPatientFName)
+                            .addComponent(lblVitalSignsPatientEncounterID)
+                            .addComponent(lblVitalSignsPatientEncounterTime)
+                            .addComponent(lblVitalSignsPatientEncounterSymptoms))
+                        .addGap(65, 65, 65)
                         .addGroup(ViewVitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField5)
-                            .addComponent(jTextField6)
-                            .addComponent(jTextField7)
-                            .addComponent(jTextField8))))
-                .addContainerGap(288, Short.MAX_VALUE))
+                            .addComponent(txtVitalSignsPatientFName, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                            .addComponent(txtVitalSignsPatientEncounterID)
+                            .addComponent(txtVitalSignsPatientEncounterTime)
+                            .addComponent(txtVitalSignsPatientEncounterBloodType)
+                            .addComponent(txtVitalSignsPatientEncounterSymptoms)
+                            .addComponent(txtVitalSignsPatientTemperature)
+                            .addComponent(txtVitalSignsPatientBloodPressure)
+                            .addComponent(txtVitalSignsPatientHeartRate))))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
-
-        ViewVitalsAreaLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8});
-
         ViewVitalsAreaLayout.setVerticalGroup(
             ViewVitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ViewVitalsAreaLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
+                .addComponent(lblDoctorViewVitalSigns)
+                .addGap(55, 55, 55)
                 .addGroup(ViewVitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(ViewVitalsAreaLayout.createSequentialGroup()
-                        .addComponent(lblDoctorViewVitalSigns)
-                        .addGap(60, 60, 60)
-                        .addComponent(jLabel1))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(txtVitalSignsPatientFName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblVitalSignsPatientFName))
+                .addGap(21, 21, 21)
                 .addGroup(ViewVitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblVitalSignsPatientEncounterID)
+                    .addComponent(txtVitalSignsPatientEncounterID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(ViewVitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblVitalSignsPatientEncounterTime)
+                    .addComponent(txtVitalSignsPatientEncounterTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(ViewVitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblVitalSignsPatientEncounterBloodType)
+                    .addComponent(txtVitalSignsPatientEncounterBloodType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(ViewVitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblVitalSignsPatientEncounterSymptoms)
+                    .addComponent(txtVitalSignsPatientEncounterSymptoms, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(ViewVitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblVitalSignsPatientTemperature)
+                    .addComponent(txtVitalSignsPatientTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(ViewVitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblVitalSignsPatientBloodPressure)
+                    .addComponent(txtVitalSignsPatientBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
-                .addGroup(ViewVitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(ViewVitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtVitalSignsPatientHeartRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblVitalSignsPatientHeartRate))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(btnBackToDoctorMainPage)
                 .addGap(104, 104, 104))
         );
 
-        ViewVitalsAreaLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8});
+        ViewVitalsAreaLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblVitalSignsPatientBloodPressure, lblVitalSignsPatientEncounterBloodType, lblVitalSignsPatientEncounterID, lblVitalSignsPatientEncounterSymptoms, lblVitalSignsPatientEncounterTime, lblVitalSignsPatientFName, lblVitalSignsPatientHeartRate, lblVitalSignsPatientTemperature});
 
         DoctorWorkArea.add(ViewVitalsArea, "card3");
 
@@ -470,6 +478,80 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBackToDoctorMainPageActionPerformed
 
+    private void btnViewEncountersForDoctorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewEncountersForDoctorMouseClicked
+        // TODO add your handling code here:
+        int selectedRowIndex = PatientEncountersjTableForDoctors.getSelectedRow();
+        
+        if (selectedRowIndex < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row to view.");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel)PatientEncountersjTableForDoctors.getModel();
+        //EncounterHistory selectedEncounter = (EncounterHistory)PatientEncountersjTableForDoctors.getValueAt(PatientEncountersjTableForDoctors.getSelectedRow(), 0);
+        
+        //txtPatientEncounterFName.setText(selectedEncounter.getfName());
+        
+        //txtPatientEncounterID.setText(selectedEncounter.getPatientId());
+        //txtPatientEncounterTime.setText(selectedEncounter.getEncounterTime());
+        //txtPatientEncounterBloodType.setText(selectedEncounter.getBloodType());
+        //txtPatientEncounterAdmitDate.setText(selectedEncounter.getAdmitDate());
+        //txtPatientEncounterSymptoms.setText(selectedEncounter.getSymptoms());
+        
+         if (encHist.getEncounterList()!= null){
+             for (Encounter enco2 : encHist.getEncounterList()){
+                 txtPatientEncounterFName.setText(enco2.getfName());
+                 txtPatientEncounterID.setText(enco2.getEncounterId());
+                 txtPatientEncounterTime.setText(enco2.getEncounterTime());
+                 txtPatientEncounterBloodType.setText(enco2.getBloodType());
+                 txtPatientEncounterAdmitDate.setText(enco2.getAdmitDate());
+                 txtPatientEncounterSymptoms.setText(enco2.getSymptoms());
+             }
+         }
+    }//GEN-LAST:event_btnViewEncountersForDoctorMouseClicked
+
+    private void btnSaveVitalSignsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveVitalSignsMouseClicked
+        // TODO add your handling code here:
+        VitalSigns vsigns = new VitalSigns();
+        vsigns.setTemperature(txttemperature.getText());
+        vsigns.setBloodPressure(txtbloodPressure.getText());
+        vsigns.setHeartRate(txtheartRate.getText());
+        vsignsHist.addNewVitalSigns(vsigns);
+        
+        JOptionPane.showMessageDialog(this, "New Vitals Added!");
+        
+        vanishDataInVitalsCreation();
+        
+    }//GEN-LAST:event_btnSaveVitalSignsMouseClicked
+
+    private void btnViewVitalSignsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewVitalSignsMouseClicked
+        // TODO add your handling code here:
+        
+        DoctorWorkArea.removeAll();
+        DoctorWorkArea.add(ViewVitalsArea);
+        DoctorWorkArea.repaint();
+        DoctorWorkArea.revalidate();
+        
+        if (encHist.getEncounterList()!= null){
+            for (Encounter enco3 : encHist.getEncounterList()){
+                txtVitalSignsPatientFName.setText(enco3.getfName());
+                txtVitalSignsPatientEncounterID.setText(enco3.getEncounterId());
+                txtVitalSignsPatientEncounterTime.setText(enco3.getEncounterTime());
+                txtVitalSignsPatientEncounterBloodType.setText(enco3.getBloodType());
+                txtVitalSignsPatientEncounterSymptoms.setText(enco3.getSymptoms());
+            }
+        }
+        if (vsignsHist.getVitalslist()!= null){
+            for (VitalSigns vs : vsignsHist.getVitalslist()){
+                txtVitalSignsPatientTemperature.setText(vs.getTemperature());
+                txtVitalSignsPatientBloodPressure.setText(vs.getBloodPressure());
+                txtVitalSignsPatientHeartRate.setText(vs.getHeartRate());
+            }
+        }
+        
+        
+    }//GEN-LAST:event_btnViewVitalSignsMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -517,23 +599,7 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSaveVitalSigns;
     private javax.swing.JButton btnViewEncountersForDoctor;
     private javax.swing.JButton btnViewVitalSigns;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JLabel lblDoctorViewVitalSigns;
     private javax.swing.JLabel lblDoctorVitalSigns;
     private javax.swing.JLabel lblPatientEncounterAdmitDate;
@@ -543,6 +609,14 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblPatientEncounterSymptoms;
     private javax.swing.JLabel lblPatientEncounterTime;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblVitalSignsPatientBloodPressure;
+    private javax.swing.JLabel lblVitalSignsPatientEncounterBloodType;
+    private javax.swing.JLabel lblVitalSignsPatientEncounterID;
+    private javax.swing.JLabel lblVitalSignsPatientEncounterSymptoms;
+    private javax.swing.JLabel lblVitalSignsPatientEncounterTime;
+    private javax.swing.JLabel lblVitalSignsPatientFName;
+    private javax.swing.JLabel lblVitalSignsPatientHeartRate;
+    private javax.swing.JLabel lblVitalSignsPatientTemperature;
     private javax.swing.JLabel lblbloodPressure;
     private javax.swing.JLabel lblheartRate;
     private javax.swing.JLabel lbltemperature;
@@ -552,6 +626,14 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtPatientEncounterID;
     private javax.swing.JTextField txtPatientEncounterSymptoms;
     private javax.swing.JTextField txtPatientEncounterTime;
+    private javax.swing.JTextField txtVitalSignsPatientBloodPressure;
+    private javax.swing.JTextField txtVitalSignsPatientEncounterBloodType;
+    private javax.swing.JTextField txtVitalSignsPatientEncounterID;
+    private javax.swing.JTextField txtVitalSignsPatientEncounterSymptoms;
+    private javax.swing.JTextField txtVitalSignsPatientEncounterTime;
+    private javax.swing.JTextField txtVitalSignsPatientFName;
+    private javax.swing.JTextField txtVitalSignsPatientHeartRate;
+    private javax.swing.JTextField txtVitalSignsPatientTemperature;
     private javax.swing.JTextField txtbloodPressure;
     private javax.swing.JTextField txtheartRate;
     private javax.swing.JTextField txttemperature;
@@ -575,5 +657,17 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
                 model.addRow(row1);
             }
         }
+    }
+
+    private void vanishDataInVitalsCreation() {
+        txttemperature.setText("");
+        txtbloodPressure.setText("");
+        txtheartRate.setText("");
+        txtPatientEncounterFName.setText("");
+        txtPatientEncounterID.setText("");
+        txtPatientEncounterTime.setText("");
+        txtPatientEncounterBloodType.setText("");
+        txtPatientEncounterAdmitDate.setText("");
+        txtPatientEncounterSymptoms.setText("");
     }
 }

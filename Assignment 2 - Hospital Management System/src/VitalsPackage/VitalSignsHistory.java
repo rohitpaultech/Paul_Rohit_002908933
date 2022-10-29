@@ -28,10 +28,10 @@ public class VitalSignsHistory {
         this.vitalslist = vitalslist;
     }
     
-    public VitalSigns addNewVitalSigns(){
-        VitalSigns vsigns = new VitalSigns();
-        vitalslist.add(vsigns);
-        return vsigns;
+    public void addNewVitalSigns(VitalSigns vitalsigns){
+        //VitalSigns vsigns = new VitalSigns();
+        vitalslist.add(vitalsigns);
+        //return vsigns;
     }
     
     

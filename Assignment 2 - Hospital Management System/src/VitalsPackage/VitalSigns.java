@@ -19,7 +19,7 @@ public class VitalSigns extends Patient {
     //private String diagnosis;
     private String temperature;
     private String bloodPressure;
-    private int heartRate; 
+    private String heartRate; 
     //private String medicines;
 
     //public VitalSigns(EncounterHistory encounterHistory, Person person, String diagnosis, String temperature, String bloodPressure, String medicines) {
@@ -47,11 +47,11 @@ public class VitalSigns extends Patient {
         this.bloodPressure = bloodPressure;
     }
 
-    public int getHeartRate() {
+    public String getHeartRate() {
         return heartRate;
     }
 
-    public void setHeartRate(int heartRate) {
+    public void setHeartRate(String heartRate) {
         this.heartRate = heartRate;
     }
 
