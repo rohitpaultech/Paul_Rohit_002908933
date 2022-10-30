@@ -9,10 +9,12 @@ import DoctorPackage.DoctorDirectory;
 import EncounterPackage.EncounterHistory;
 import PatientPackage.Patient;
 import PersonPackage.Person;
+import System.SystemAdmin;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
+import static ui.RegistrationJFrame.adminDr;
 import static ui.RegistrationJFrame.docDr;
 import static ui.RegistrationJFrame.patDr;
 
@@ -255,6 +257,7 @@ public class LoginJFrame extends javax.swing.JFrame {
         
         Person pdata = checkMyPerson();
         Doctor ddata = checkMyDoctor(); //Doctor ddata = checkMyDoctor();
+        SystemAdmin sadata = checkMyAdmin();
         
         if (pdata!=null||ddata!=null){  //pdata!=null||ddata!=null
             if (pdata.getRoles() == "Patient"){
@@ -282,6 +285,14 @@ public class LoginJFrame extends javax.swing.JFrame {
                 //patWorkArea.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.dispose();
             }
+            else if (sadata.getRoles() == "Admin"){
+                AdminWorkAreaJFrame adminWorkArea = new AdminWorkAreaJFrame();
+                adminWorkArea.setVisible(true);
+                adminWorkArea.pack();
+                adminWorkArea.setLocationRelativeTo(null);
+                adminWorkArea.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                this.dispose();
+            }
         }    
            
     }//GEN-LAST:event_btnSignInActionPerformed
@@ -306,6 +317,17 @@ public class LoginJFrame extends javax.swing.JFrame {
             }
         }
         return doc1;
+    }
+    
+    public SystemAdmin checkMyAdmin(){
+        SystemAdmin admn = new SystemAdmin();
+        for (SystemAdmin a : adminDr.getSystemAdminList()){
+            if (a.getUserName().equals(txtUsername.getText()) && a.getPassWord().equals(String.valueOf(pwdPassword.getPassword()))){
+                System.out.println(a.getUserName());
+                admn = a;
+            }
+        }
+        return admn;
     }
     
     

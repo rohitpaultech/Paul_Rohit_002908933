@@ -10,6 +10,8 @@ import DoctorPackage.DoctorDirectory;
 import EncounterPackage.EncounterHistory;
 import PatientPackage.Patient;
 import PatientPackage.PatientDirectory;
+import System.SystemAdmin;
+import System.SystemAdminDirectory;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,6 +38,7 @@ public class RegistrationJFrame extends javax.swing.JFrame {
     
     public static DoctorDirectory docDr = new DoctorDirectory();
     public static PatientDirectory patDr = new PatientDirectory();
+    public static SystemAdminDirectory adminDr = new SystemAdminDirectory();
     
     
     // the file path -> C:\Users\1BestCsharp\Desktop\java_app
@@ -221,7 +224,7 @@ public class RegistrationJFrame extends javax.swing.JFrame {
         lblroles.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lblroles.setText("Role:");
 
-        jComboBoxroles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Patient", "Doctor", "System Admin", "Hospital Admin" }));
+        jComboBoxroles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Patient", "Doctor", "Admin" }));
 
         lblhospital.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lblhospital.setText("Hospital:");
@@ -457,7 +460,7 @@ public class RegistrationJFrame extends javax.swing.JFrame {
             pat.setfName(txtfName.getText());
             pat.setlName(txtlName.getText());
             pat.setAge(Integer.parseInt(txtage.getText()));
-            pat.setDateOfBirth(jDateChooserdateOfBirth.getDateFormatString());
+            pat.setDateOfBirth(jDateChooserdateOfBirth.getDate().toString());
             pat.setHeight(Double.parseDouble(txtheight.getText()));
             pat.setWeight(Float.parseFloat(txtweight.getText()));
             pat.setMobilePhn(Long.parseLong(txtmobilePhn.getText()));
@@ -469,6 +472,26 @@ public class RegistrationJFrame extends javax.swing.JFrame {
             pat.setUserName(txtuserName.getText());
             pat.setPassWord(String.valueOf(pwdpassWord.getPassword()));
             patDr.addNewPatient(pat);
+        }
+        
+        else if (jComboBoxroles.getSelectedItem().toString().equals("Admin")){
+            SystemAdmin admin = new SystemAdmin();
+            
+            admin.setfName(txtfName.getText());
+            admin.setlName(txtlName.getText());
+            admin.setAge(Integer.parseInt(txtage.getText()));
+            admin.setDateOfBirth(jDateChooserdateOfBirth.getDateFormatString());
+            admin.setHeight(Double.parseDouble(txtheight.getText()));
+            admin.setWeight(Float.parseFloat(txtweight.getText()));
+            admin.setMobilePhn(Long.parseLong(txtmobilePhn.getText()));
+            admin.setRoles(jComboBoxroles.getSelectedItem().toString());
+            admin.setHospital(jComboBoxroleshospital.getSelectedItem().toString());
+            admin.setCity(jComboBoxcity.getSelectedItem().toString());
+            admin.setCommunity(txtcommunity.getText());
+            admin.setHouseAddress(txthouseAddress.getText());
+            admin.setUserName(txtuserName.getText());
+            admin.setPassWord(String.valueOf(pwdpassWord.getPassword()));
+            adminDr.addNewSystemAdmin(admin);
         }
         
         JOptionPane.showMessageDialog(this, "New entity Added!");

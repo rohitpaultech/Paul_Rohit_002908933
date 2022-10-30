@@ -26,10 +26,10 @@ public class SystemAdminDirectory {
         this.systemAdminList = systemAdminList;
     }
     
-    public SystemAdmin addNewSystemAdmin(){
-        SystemAdmin sa = new SystemAdmin();
-        systemAdminList.add(sa);
-        return sa;
+    public void addNewSystemAdmin(SystemAdmin admin){
+        //SystemAdmin sa = new SystemAdmin();
+            systemAdminList.add(admin);
+        //return sa;
     }
     
     

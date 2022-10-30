@@ -59,7 +59,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnPatientLogOut" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="8" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -117,10 +117,13 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="271" max="-2" attributes="0"/>
-                                  <Component id="btnCreateEncounter" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="btnViewPatientVitals" linkSize="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnCreateEncounter" linkSize="1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="17" max="32767" attributes="0"/>
+                          <EmptySpace pref="19" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -133,7 +136,9 @@
                           <Component id="jScrollPane1" min="-2" pref="232" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                           <Component id="btnCreateEncounter" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="201" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="btnViewPatientVitals" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="116" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -240,6 +245,14 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateEncounterActionPerformed"/>
                   </Events>
                 </Component>
+                <Component class="javax.swing.JButton" name="btnViewPatientVitals">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="View Patient Vitals"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnViewPatientVitalsMouseClicked"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="AddEncounter">
@@ -306,15 +319,15 @@
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="276" max="-2" attributes="0"/>
-                                  <Component id="btnBackToPatientMainPage" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="242" max="-2" attributes="0"/>
+                                  <Component id="btnSubmitEncounter" linkSize="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="242" max="-2" attributes="0"/>
-                                  <Component id="btnSubmitEncounter" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="278" max="-2" attributes="0"/>
+                                  <Component id="btnBackToPatientMainPage" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="8" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -383,11 +396,11 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="49" max="32767" attributes="0"/>
+                          <EmptySpace pref="48" max="32767" attributes="0"/>
                           <Component id="btnSubmitEncounter" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                          <Component id="btnBackToPatientMainPage" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="btnBackToPatientMainPage" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -543,6 +556,221 @@
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBackToPatientMainPageMouseClicked"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackToPatientMainPageActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="PatientVitalsReport">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="fe" green="f1" red="e4" type="rgb"/>
+                </Property>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                  <CardConstraints cardName="card4"/>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lblTitle3" pref="719" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="lblVitalSignsPatientEncounterBloodType" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblVitalSignsPatientTemperature" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblVitalSignsPatientBloodPressure" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblVitalSignsPatientHeartRate" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblVitalSignsPatientFName" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblVitalSignsPatientEncounterID" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblVitalSignsPatientEncounterTime" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblVitalSignsPatientEncounterSymptoms" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtVitalsPatientFName" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtVitalsPatientEncounterID" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtVitalsPatientEncounterTime" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtVitalsPatientEncounterBloodType" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtVitalsPatientEncounterSymptoms" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtVitalsPatientTemperature" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtVitalsPatientBloodPressure" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtVitalsPatientHeartRate" alignment="0" min="-2" pref="321" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="298" max="-2" attributes="0"/>
+                                          <Component id="btnBackToPatientMainPage1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                          <Component id="lblTitle3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="txtVitalsPatientFName" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblVitalSignsPatientFName" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblVitalSignsPatientEncounterID" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtVitalsPatientEncounterID" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblVitalSignsPatientEncounterTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtVitalsPatientEncounterTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblVitalSignsPatientEncounterBloodType" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtVitalsPatientEncounterBloodType" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblVitalSignsPatientEncounterSymptoms" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtVitalsPatientEncounterSymptoms" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblVitalSignsPatientTemperature" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtVitalsPatientTemperature" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblVitalSignsPatientBloodPressure" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtVitalsPatientBloodPressure" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtVitalsPatientHeartRate" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblVitalSignsPatientHeartRate" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="46" max="32767" attributes="0"/>
+                          <Component id="btnBackToPatientMainPage1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="lblTitle3">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="26" style="3"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="99" green="99" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="~ Patient Vitals Report ~"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblVitalSignsPatientFName">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Patient Name:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtVitalsPatientFName">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblVitalSignsPatientEncounterID">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Patient Encounter ID:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtVitalsPatientEncounterID">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblVitalSignsPatientEncounterTime">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Patient Encounter Time:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtVitalsPatientEncounterTime">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblVitalSignsPatientEncounterBloodType">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Patient Blood Type:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtVitalsPatientEncounterBloodType">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblVitalSignsPatientEncounterSymptoms">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Patient&apos;s Symptoms:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtVitalsPatientEncounterSymptoms">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblVitalSignsPatientTemperature">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Recorded Temperature:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtVitalsPatientTemperature">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblVitalSignsPatientBloodPressure">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Recorded Blood Pressure:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtVitalsPatientBloodPressure">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblVitalSignsPatientHeartRate">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Recorded Heart Rate:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtVitalsPatientHeartRate">
+                </Component>
+                <Component class="javax.swing.JButton" name="btnBackToPatientMainPage1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&lt;&lt; Back"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBackToPatientMainPage1MouseClicked"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackToPatientMainPage1ActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
