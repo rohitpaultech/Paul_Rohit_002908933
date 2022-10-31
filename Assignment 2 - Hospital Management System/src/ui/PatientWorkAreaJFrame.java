@@ -574,6 +574,7 @@ public class PatientWorkAreaJFrame extends javax.swing.JFrame {
         //Patient p = checkMyPerson()
         //Patient rgfr = checkMyPatient();
         
+        
     }//GEN-LAST:event_btnCreateEncounterActionPerformed
 
     private void btnBackToPatientMainPageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackToPatientMainPageMouseClicked

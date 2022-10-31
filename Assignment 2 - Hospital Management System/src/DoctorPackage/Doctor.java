@@ -36,6 +36,12 @@ public class Doctor extends Person {
     public void setMedicines(String medicines) {
         this.medicines = medicines;
     }
+    
+    @Override
+    public String toString()
+    {
+        return this.fName;
+    }
 
     
     

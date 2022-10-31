@@ -439,7 +439,7 @@ public class RegistrationJFrame extends javax.swing.JFrame {
             doc.setfName(txtfName.getText());
             doc.setlName(txtlName.getText());
             doc.setAge(Integer.parseInt(txtage.getText()));
-            doc.setDateOfBirth(jDateChooserdateOfBirth.getDateFormatString());
+            doc.setDateOfBirth(jDateChooserdateOfBirth.getDate().toString());
             doc.setHeight(Double.parseDouble(txtheight.getText()));
             doc.setWeight(Float.parseFloat(txtweight.getText()));
             doc.setMobilePhn(Long.parseLong(txtmobilePhn.getText()));
@@ -480,7 +480,7 @@ public class RegistrationJFrame extends javax.swing.JFrame {
             admin.setfName(txtfName.getText());
             admin.setlName(txtlName.getText());
             admin.setAge(Integer.parseInt(txtage.getText()));
-            admin.setDateOfBirth(jDateChooserdateOfBirth.getDateFormatString());
+            admin.setDateOfBirth(jDateChooserdateOfBirth.getDate().toString());
             admin.setHeight(Double.parseDouble(txtheight.getText()));
             admin.setWeight(Float.parseFloat(txtweight.getText()));
             admin.setMobilePhn(Long.parseLong(txtmobilePhn.getText()));

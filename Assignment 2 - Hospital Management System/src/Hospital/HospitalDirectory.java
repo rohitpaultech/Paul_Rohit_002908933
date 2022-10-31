@@ -12,26 +12,26 @@ import java.util.ArrayList;
  */
 public class HospitalDirectory {
     
-    private ArrayList<HospitalAdmin> hospitalAdminList;
+    private ArrayList<Hospital> hospitalList;
 
     public HospitalDirectory() {
         
-        hospitalAdminList = new ArrayList<>();
+        hospitalList = new ArrayList<>();
         
     }
 
-    public ArrayList<HospitalAdmin> getHospitalAdminList() {
-        return hospitalAdminList;
+    public ArrayList<Hospital> getHospitalList() {
+        return hospitalList;
     }
 
-    public void setHospitalAdminList(ArrayList<HospitalAdmin> hospitalAdminList) {
-        this.hospitalAdminList = hospitalAdminList;
+    public void setHospitalList(ArrayList<Hospital> hospitalList) {
+        this.hospitalList = hospitalList;
     }
     
-    public HospitalAdmin addNewHospitalAdmin(){
-        HospitalAdmin hadmin = new HospitalAdmin();
-        hospitalAdminList.add(hadmin);
-        return hadmin;
+    public Hospital addNewHospital(){
+        Hospital h = new Hospital();
+        hospitalList.add(h);
+        return h;
     }
     
     

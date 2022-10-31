@@ -13,13 +13,9 @@ import java.util.ArrayList;
  */
 public class PatientDirectory {
     
-    private ArrayList<Patient> patientlist;
+    private static ArrayList<Patient> patientlist = new ArrayList<>();
 
-    public PatientDirectory() {
-        
-        patientlist = new ArrayList<>();
-        
-    }
+   
 
     public ArrayList<Patient> getPatientlist() {
         return patientlist;
@@ -32,6 +28,22 @@ public class PatientDirectory {
     public void addNewPatient(Patient patient){ // (Patient patient)
         
         patientlist.add(patient); //patientlist.add(patient)
+        
+    }
+    
+    public Patient getUpdatedValues(String fname){
+        for(Patient pa:patientlist){
+            if(pa.getfName().equals(fname)){
+                return pa;
+            }
+        }
+        return null;
+    }
+    
+    public void deletePat(Patient pat){
+        
+        //history.remove(hr);
+        patientlist.remove(pat);
         
     }
     

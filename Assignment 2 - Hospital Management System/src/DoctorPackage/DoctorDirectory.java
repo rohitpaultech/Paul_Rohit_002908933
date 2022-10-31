@@ -15,11 +15,9 @@ import java.util.ArrayList;
  */
 public class DoctorDirectory {
     
-    private ArrayList<Doctor> doctorList;
+    private static ArrayList<Doctor> doctorList = new ArrayList<>();
 
-    public DoctorDirectory() {
-        doctorList = new ArrayList<>();
-    }
+    
 
     public ArrayList<Doctor> getDoctorList() {
         return doctorList;
@@ -32,6 +30,14 @@ public class DoctorDirectory {
     public void addNewDoctor(Doctor doctor){ // (Patient patient)
         
         doctorList.add(doctor); //patientlist.add(patient)
+        
+    }
+    
+    public void deleteDoc(Doctor doc){
+        
+        //history.remove(hr);
+        //patientlist.remove(pat);
+        doctorList.remove(doc);
         
     }
 

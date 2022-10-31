@@ -74,6 +74,12 @@ public class Patient extends Person {
         this.symptoms = symptoms;
     }
     
+    @Override
+    public String toString()
+    {
+        return this.fName;
+    }
+    
 
     
 
