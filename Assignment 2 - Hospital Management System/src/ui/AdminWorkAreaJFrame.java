@@ -6,6 +6,8 @@ package ui;
 
 import DoctorPackage.Doctor;
 import DoctorPackage.DoctorDirectory;
+import Hospital.Hospital;
+import Hospital.HospitalDirectory;
 import PatientPackage.Patient;
 import PatientPackage.PatientDirectory;
 import javax.swing.JFrame;
@@ -33,8 +35,10 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
         initComponents();
         populateTable(); //for patient control screen
         populateDoctorTable();//for doctor control screen
+        populateHospitalControlTable(); //for hospital control screen
         vanishDataForPatient();
         vanishDataForDoctor();
+        vanishDataForHospital();
     }
 
     /**
@@ -128,6 +132,21 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
         txtDocPassword = new javax.swing.JTextField();
         btnBackToAdminWork1 = new javax.swing.JButton();
         ManageHospitalsArea = new javax.swing.JPanel();
+        lblTitle4 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblHospitalControl = new javax.swing.JTable();
+        btnViewHospital = new javax.swing.JButton();
+        btnBackToAdminWork2 = new javax.swing.JButton();
+        lblEntityRole = new javax.swing.JLabel();
+        lblHospitalName = new javax.swing.JLabel();
+        lblEntityCity = new javax.swing.JLabel();
+        lblEntityCommunity = new javax.swing.JLabel();
+        txtEntityRole = new javax.swing.JTextField();
+        txtHospitalName = new javax.swing.JTextField();
+        txtEntityCity = new javax.swing.JTextField();
+        txtEntityCommunity = new javax.swing.JTextField();
+        lblName = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -193,6 +212,11 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
         });
 
         btnManageHospitals.setText("Manage Hospitals");
+        btnManageHospitals.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnManageHospitalsMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout AdminWorkLayout = new javax.swing.GroupLayout(AdminWork);
         AdminWork.setLayout(AdminWorkLayout);
@@ -674,15 +698,121 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
 
         ManageHospitalsArea.setBackground(new java.awt.Color(255, 255, 255));
 
+        lblTitle4.setFont(new java.awt.Font("Segoe UI", 3, 26)); // NOI18N
+        lblTitle4.setForeground(new java.awt.Color(0, 153, 153));
+        lblTitle4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle4.setText("~ Hospital Display ~");
+
+        tblHospitalControl.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Name", "Role", "Hospital Name", "City", "Community"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(tblHospitalControl);
+
+        btnViewHospital.setText("View Hospital");
+        btnViewHospital.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnViewHospitalMouseClicked(evt);
+            }
+        });
+
+        btnBackToAdminWork2.setText("<< Back to Home");
+        btnBackToAdminWork2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBackToAdminWork2MouseClicked(evt);
+            }
+        });
+
+        lblEntityRole.setText("Role:");
+
+        lblHospitalName.setText("Hospital Name:");
+
+        lblEntityCity.setText("City:");
+
+        lblEntityCommunity.setText("Community:");
+
+        lblName.setText("Name:");
+
         javax.swing.GroupLayout ManageHospitalsAreaLayout = new javax.swing.GroupLayout(ManageHospitalsArea);
         ManageHospitalsArea.setLayout(ManageHospitalsAreaLayout);
         ManageHospitalsAreaLayout.setHorizontalGroup(
             ManageHospitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 859, Short.MAX_VALUE)
+            .addGroup(ManageHospitalsAreaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ManageHospitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTitle4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ManageHospitalsAreaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBackToAdminWork2)
+                .addGap(25, 25, 25))
+            .addGroup(ManageHospitalsAreaLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(btnViewHospital)
+                .addGap(42, 42, 42)
+                .addGroup(ManageHospitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblEntityCommunity)
+                    .addComponent(lblEntityCity)
+                    .addComponent(lblHospitalName)
+                    .addComponent(lblEntityRole)
+                    .addComponent(lblName))
+                .addGap(33, 33, 33)
+                .addGroup(ManageHospitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtEntityCommunity, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtEntityCity, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtHospitalName, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtEntityRole, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
+                .addContainerGap(295, Short.MAX_VALUE))
         );
         ManageHospitalsAreaLayout.setVerticalGroup(
             ManageHospitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 762, Short.MAX_VALUE)
+            .addGroup(ManageHospitalsAreaLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lblTitle4)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnViewHospital)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addGroup(ManageHospitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblName)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addGroup(ManageHospitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEntityRole)
+                    .addComponent(txtEntityRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(ManageHospitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblHospitalName)
+                    .addComponent(txtHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49)
+                .addGroup(ManageHospitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEntityCity)
+                    .addComponent(txtEntityCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addGroup(ManageHospitalsAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEntityCommunity)
+                    .addComponent(txtEntityCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addComponent(btnBackToAdminWork2)
+                .addGap(23, 23, 23))
         );
 
         AdminWorkArea.add(ManageHospitalsArea, "card5");
@@ -968,6 +1098,53 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
         vanishDataForDoctor();
     }//GEN-LAST:event_btnDeactivateDoctorRecordMouseClicked
 
+    private void btnBackToAdminWork2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackToAdminWork2MouseClicked
+        // TODO add your handling code here:
+        AdminWorkArea.removeAll();
+        AdminWorkArea.add(AdminWork);
+        AdminWorkArea.repaint();
+        AdminWorkArea.revalidate();
+    }//GEN-LAST:event_btnBackToAdminWork2MouseClicked
+
+    private void btnManageHospitalsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageHospitalsMouseClicked
+        // TODO add your handling code here:
+        AdminWorkArea.removeAll();
+        AdminWorkArea.add(ManageHospitalsArea);
+        AdminWorkArea.repaint();
+        AdminWorkArea.revalidate();
+        
+    }//GEN-LAST:event_btnManageHospitalsMouseClicked
+
+    private void btnViewHospitalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewHospitalMouseClicked
+        // TODO add your handling code here:
+        int selectedRowIndex = tblHospitalControl.getSelectedRow();
+        
+        if(selectedRowIndex < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row to view.");
+            return;
+        }
+        
+        if (patDr.getPatientlist() != null){
+            for (Patient pn : patDr.getPatientlist()){
+                txtName.setText(pn.getfName());
+                txtEntityRole.setText(pn.getRoles());
+                txtHospitalName.setText(pn.getHospital());
+                txtEntityCity.setText(pn.getCity());
+                txtEntityCommunity.setText(pn.getCommunity());
+            }
+        }
+        
+        if(docDr.getDoctorList() != null){
+            for(Doctor dr : docDr.getDoctorList()){
+                txtName.setText(dr.getfName());
+                txtEntityRole.setText(dr.getRoles());
+                txtHospitalName.setText(dr.getHospital());
+                txtEntityCity.setText(dr.getCity());
+                txtEntityCommunity.setText(dr.getCommunity());
+            }        
+        }  
+    }//GEN-LAST:event_btnViewHospitalMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1012,6 +1189,7 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel ManagePatientsArea;
     private javax.swing.JButton btnBackToAdminWork;
     private javax.swing.JButton btnBackToAdminWork1;
+    private javax.swing.JButton btnBackToAdminWork2;
     private javax.swing.JButton btnDeactivateDoctorRecord;
     private javax.swing.JButton btnDeactivatePatientRecord;
     private javax.swing.JButton btnDoctorLogOut;
@@ -1021,9 +1199,11 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnUpdateDoctorRecord;
     private javax.swing.JButton btnUpdatePatientRecord;
     private javax.swing.JButton btnViewDoctorRecord;
+    private javax.swing.JButton btnViewHospital;
     private javax.swing.JButton btnViewPatientRecord;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblCity;
@@ -1043,20 +1223,27 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblDocRole;
     private javax.swing.JLabel lblDocUsername;
     private javax.swing.JLabel lblDocWeight;
+    private javax.swing.JLabel lblEntityCity;
+    private javax.swing.JLabel lblEntityCommunity;
+    private javax.swing.JLabel lblEntityRole;
     private javax.swing.JLabel lblFirstName;
     private javax.swing.JLabel lblHeight;
     private javax.swing.JLabel lblHospital;
+    private javax.swing.JLabel lblHospitalName;
     private javax.swing.JLabel lblHouseAddress;
     private javax.swing.JLabel lblLastName;
     private javax.swing.JLabel lblMobilePhn;
+    private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTitle2;
     private javax.swing.JLabel lblTitle3;
+    private javax.swing.JLabel lblTitle4;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JLabel lblWeight;
     private javax.swing.JTable tblDoctorRecordControl;
+    private javax.swing.JTable tblHospitalControl;
     private javax.swing.JTable tblPatientRecordControl;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtCity;
@@ -1076,12 +1263,17 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtDocRole;
     private javax.swing.JTextField txtDocUsername;
     private javax.swing.JTextField txtDocWeight;
+    private javax.swing.JTextField txtEntityCity;
+    private javax.swing.JTextField txtEntityCommunity;
+    private javax.swing.JTextField txtEntityRole;
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtHeight;
     private javax.swing.JTextField txtHospital;
+    private javax.swing.JTextField txtHospitalName;
     private javax.swing.JTextField txtHouseAddress;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtMobilePhone;
+    private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtRole;
     private javax.swing.JTextField txtUsername;
@@ -1177,5 +1369,44 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
         txtDocHouseAddress.setText("");
         txtDocUsername.setText("");
         txtDocPassword.setText("");
+    }
+
+    private void populateHospitalControlTable() {
+        DefaultTableModel model = (DefaultTableModel)tblHospitalControl.getModel();
+        model.setRowCount(0);
+        
+        if (patDr.getPatientlist()!=null && docDr.getDoctorList()!= null){
+            for (Patient pa1 : patDr.getPatientlist()){
+                Object[] row1 = new Object[5];
+                
+                row1[0] = pa1;
+                row1[1] = pa1.getRoles();
+                row1[2] = pa1.getHospital();
+                row1[3] = pa1.getCity();
+                row1[4] = pa1.getCommunity();
+                
+                model.addRow(row1);
+            }
+            
+            for (Doctor do1 : docDr.getDoctorList()){
+                Object[] row2 = new Object[5];
+                
+                row2[0] = do1;
+                row2[1] = do1.getRoles();
+                row2[2] = do1.getHospital();
+                row2[3] = do1.getCity();
+                row2[4] = do1.getCommunity();
+                
+                model.addRow(row2);
+            }
+        }
+    }
+
+    private void vanishDataForHospital() {
+        txtName.setText("");
+        txtEntityRole.setText("");
+        txtHospitalName.setText("");
+        txtEntityCity.setText("");
+        txtEntityCommunity.setText("");
     }
 }

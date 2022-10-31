@@ -21,6 +21,10 @@ public class Hospital extends Person {
     public void setHospitalID(int hospitalID) {
         this.hospitalID = hospitalID;
     }
+
+   
+    
+    
     
     
     

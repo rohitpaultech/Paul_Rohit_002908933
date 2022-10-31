@@ -28,10 +28,14 @@ public class HospitalDirectory {
         this.hospitalList = hospitalList;
     }
     
-    public Hospital addNewHospital(){
-        Hospital h = new Hospital();
-        hospitalList.add(h);
-        return h;
+    public void addNewHospital(Hospital hospital){
+        //Hospital h = new Hospital();
+        hospitalList.add(hospital);
+        //return h;
+    }
+    
+    public void deleteHospital(Hospital hospital){
+        hospitalList.remove(hospital);
     }
     
     
