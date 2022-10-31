@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="undecorated" type="boolean" value="true"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -56,14 +55,14 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnDoctorLogOut" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="10" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="626" max="32767" attributes="0"/>
+                      <EmptySpace pref="630" max="32767" attributes="0"/>
                       <Component id="btnDoctorLogOut" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
                   </Group>
@@ -105,20 +104,15 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblTitle" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="btnManagePatients" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btnManageDoctors" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="314" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="lblTitle" max="32767" attributes="0"/>
-                              <Component id="btnManageHospitals" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="327" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="btnManageDoctors" linkSize="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnManageHospitals" linkSize="3" min="-2" pref="203" max="-2" attributes="0"/>
+                              <Component id="btnManagePatients" linkSize="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="329" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -127,14 +121,13 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnManagePatients" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnManageDoctors" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
+                          <Component id="btnManagePatients" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
                           <Component id="btnManageHospitals" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="263" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                          <Component id="btnManageDoctors" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="301" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -166,6 +159,7 @@
                     <Property name="text" type="java.lang.String" value="Manage Doctors"/>
                   </Properties>
                   <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnManageDoctorsMouseClicked"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageDoctorsActionPerformed"/>
                   </Events>
                 </Component>
@@ -173,6 +167,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Manage Hospitals"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnManageHospitalsMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -193,7 +190,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                          <Component id="lblTitle2" pref="729" max="32767" attributes="0"/>
+                          <Component id="lblTitle2" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -201,19 +198,84 @@
                           <Component id="jScrollPane1" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                          <Component id="btnViewPatientRecord" linkSize="2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnUpdatePatientRecord" linkSize="2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnDeactivatePatientRecord" linkSize="2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="btnViewPatientRecord" linkSize="2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnUpdatePatientRecord" linkSize="2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnDeactivatePatientRecord" linkSize="2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblFirstName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                              <Component id="lblAge" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblLastName" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="lblHeight" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblDateOfBirth" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblWeight" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="lblUsername" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                          <Component id="txtUsername" min="-2" pref="196" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                          <Component id="lblPassword" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="txtPassword" min="-2" pref="196" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtLastName" min="-2" pref="196" max="-2" attributes="0"/>
+                                              <Component id="txtAge" min="-2" pref="196" max="-2" attributes="0"/>
+                                              <Component id="txtDateOfBirth" min="-2" pref="196" max="-2" attributes="0"/>
+                                              <Component id="txtHeight" min="-2" pref="196" max="-2" attributes="0"/>
+                                              <Component id="txtWeight" min="-2" pref="196" max="-2" attributes="0"/>
+                                              <Component id="txtFirstName" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblHouseAddress" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                                  <Component id="lblHospital" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblMobilePhn" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblRole" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblCity" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblCommunity" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtHouseAddress" min="-2" pref="196" max="-2" attributes="0"/>
+                                              <Component id="txtCommunity" min="-2" pref="196" max="-2" attributes="0"/>
+                                              <Component id="txtCity" min="-2" pref="196" max="-2" attributes="0"/>
+                                              <Component id="txtMobilePhone" min="-2" pref="196" max="-2" attributes="0"/>
+                                              <Component id="txtHospital" min="-2" pref="196" max="-2" attributes="0"/>
+                                              <Component id="txtRole" min="-2" pref="196" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="60" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="btnBackToAdminWork" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -230,7 +292,56 @@
                               <Component id="btnUpdatePatientRecord" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnDeactivatePatientRecord" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="467" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblMobilePhn" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtMobilePhone" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblLastName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtLastName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblHospital" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtHospital" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblRole" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtRole" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblDateOfBirth" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDateOfBirth" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCity" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCity" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblHeight" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtHeight" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCommunity" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCommunity" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblWeight" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtWeight" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblHouseAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtHouseAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="74" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblUsername" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtUsername" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Component id="btnBackToAdminWork" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       </Group>
@@ -362,21 +473,131 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="View Patient"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnViewPatientRecordMouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnUpdatePatientRecord">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Update Patient"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnUpdatePatientRecordMouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnDeactivatePatientRecord">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Deactivate Patient"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnDeactivatePatientRecordMouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnBackToAdminWork">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="&lt;&lt; Back to Home"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBackToAdminWorkMouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblFirstName">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="First Name:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblLastName">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Last Name:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblAge">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Age:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblDateOfBirth">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Date of Birth:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblHeight">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Height:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtFirstName">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtLastName">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtAge">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtDateOfBirth">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtHeight">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblWeight">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Weight:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtWeight">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblMobilePhn">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Phone Number:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblHospital">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Hospital:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblRole">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Role:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblCity">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="City:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblCommunity">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Community:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblHouseAddress">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="House Address:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtMobilePhone">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtHospital">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtRole">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtCity">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtCommunity">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtHouseAddress">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblUsername">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Username:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtUsername">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblPassword">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Password:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtPassword">
                 </Component>
               </SubComponents>
             </Container>
@@ -395,15 +616,418 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="854" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                          <Component id="lblTitle3" pref="734" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Component id="lblDocFirstName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                              <Component id="lblDocAge" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblDocLastName" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="lblDocHeight" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblDocDateOfBirth" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblDocWeight" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblDocUsername" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                          <Component id="txtDocUsername" min="-2" pref="196" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                          <Component id="lblDocPassword" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="txtDocPassword" min="-2" pref="196" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtDocLastName" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                                              <Component id="txtDocAge" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                                              <Component id="txtDocDateOfBirth" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                                              <Component id="txtDocHeight" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                                              <Component id="txtDocWeight" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                                              <Component id="txtDocFirstName" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblDocHouseAddress" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                                  <Component id="lblDocHospital" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblDocMobilePhn" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblDocRole" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblDocCity" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblDocCommunity" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtDocHouseAddress" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                                              <Component id="txtDocCommunity" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                                              <Component id="txtDocCity" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                                              <Component id="txtDocMobilePhone" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                                              <Component id="txtDocHospital" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                                              <Component id="txtDocRole" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="btnViewDoctorRecord" linkSize="4" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnUpdateDoctorRecord" linkSize="4" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnDeactivateDoctorRecord" linkSize="4" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btnBackToAdminWork1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="754" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="lblTitle3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" min="-2" pref="107" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnViewDoctorRecord" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnUpdateDoctorRecord" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnDeactivateDoctorRecord" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblDocFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDocFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDocMobilePhn" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDocMobilePhone" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblDocLastName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDocLastName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDocHospital" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDocHospital" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblDocAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDocAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDocRole" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDocRole" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblDocDateOfBirth" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDocDateOfBirth" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDocCity" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDocCity" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblDocHeight" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDocHeight" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDocCommunity" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDocCommunity" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblDocWeight" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDocWeight" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDocHouseAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDocHouseAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="74" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblDocUsername" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDocUsername" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDocPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDocPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                          <Component id="btnBackToAdminWork1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="lblTitle3">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="26" style="3"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="99" green="99" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="~ Doctor Record Control ~"/>
+                  </Properties>
+                </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTable" name="tblDoctorRecordControl">
+                      <Properties>
+                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                          <Table columnCount="14" rowCount="4">
+                            <Column editable="false" title="First Name" type="java.lang.Object"/>
+                            <Column editable="false" title="Last Name" type="java.lang.Object"/>
+                            <Column editable="false" title="Age" type="java.lang.Object"/>
+                            <Column editable="false" title="Date of Birth" type="java.lang.Object"/>
+                            <Column editable="false" title="Height" type="java.lang.Object"/>
+                            <Column editable="false" title="Weight" type="java.lang.Object"/>
+                            <Column editable="false" title="Phone" type="java.lang.Object"/>
+                            <Column editable="false" title="Hospital" type="java.lang.Object"/>
+                            <Column editable="false" title="Role" type="java.lang.Object"/>
+                            <Column editable="false" title="City" type="java.lang.Object"/>
+                            <Column editable="false" title="Community" type="java.lang.Object"/>
+                            <Column editable="false" title="House Address" type="java.lang.Object"/>
+                            <Column editable="false" title="Username" type="java.lang.Object"/>
+                            <Column editable="false" title="Password" type="java.lang.Object"/>
+                          </Table>
+                        </Property>
+                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                          <TableColumnModel selectionModel="0">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                          </TableColumnModel>
+                        </Property>
+                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JButton" name="btnViewDoctorRecord">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="View Doctor"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnViewDoctorRecordMouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnUpdateDoctorRecord">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Update Doctor"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnUpdateDoctorRecordMouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnDeactivateDoctorRecord">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Deactivate Doctor"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnDeactivateDoctorRecordMouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblDocFirstName">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="First Name:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtDocFirstName">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblDocMobilePhn">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Phone Number:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtDocMobilePhone">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblDocLastName">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Last Name:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtDocLastName">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblDocHospital">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Hospital:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtDocHospital">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblDocAge">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Age:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtDocAge">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblDocRole">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Role:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtDocRole">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblDocDateOfBirth">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Date of Birth:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtDocDateOfBirth">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblDocCity">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="City:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtDocCity">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblDocHeight">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Height:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtDocHeight">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblDocCommunity">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Community:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtDocCommunity">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblDocWeight">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Weight:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtDocWeight">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblDocHouseAddress">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="House Address:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtDocHouseAddress">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblDocUsername">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Username:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtDocUsername">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblDocPassword">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Password:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtDocPassword">
+                </Component>
+                <Component class="javax.swing.JButton" name="btnBackToAdminWork1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&lt;&lt; Back to Home"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBackToAdminWork1MouseClicked"/>
+                  </Events>
+                </Component>
+              </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="ManageHospitalsArea">
               <Properties>
@@ -420,15 +1044,202 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="854" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblTitle4" max="32767" attributes="0"/>
+                              <Component id="jScrollPane3" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btnBackToAdminWork2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="btnViewHospital" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="lblEntityCommunity" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblEntityCity" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblHospitalName" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblEntityRole" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblName" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="txtEntityCommunity" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtEntityCity" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtHospitalName" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtEntityRole" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtName" alignment="0" pref="175" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="295" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="754" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="lblTitle4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" min="-2" pref="110" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnViewHospital" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="59" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblEntityRole" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtEntityRole" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblHospitalName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtHospitalName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblEntityCity" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtEntityCity" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblEntityCommunity" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtEntityCommunity" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                          <Component id="btnBackToAdminWork2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="lblTitle4">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="26" style="3"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="99" green="99" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="~ Hospital Display ~"/>
+                  </Properties>
+                </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTable" name="tblHospitalControl">
+                      <Properties>
+                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                          <Table columnCount="5" rowCount="4">
+                            <Column editable="false" title="Name" type="java.lang.Object"/>
+                            <Column editable="false" title="Role" type="java.lang.Object"/>
+                            <Column editable="false" title="Hospital Name" type="java.lang.Object"/>
+                            <Column editable="false" title="City" type="java.lang.Object"/>
+                            <Column editable="false" title="Community" type="java.lang.Object"/>
+                          </Table>
+                        </Property>
+                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                          <TableColumnModel selectionModel="0">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                          </TableColumnModel>
+                        </Property>
+                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JButton" name="btnViewHospital">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="View Hospital"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnViewHospitalMouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnBackToAdminWork2">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&lt;&lt; Back to Home"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBackToAdminWork2MouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblEntityRole">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Role:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblHospitalName">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Hospital Name:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblEntityCity">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="City:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblEntityCommunity">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Community:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtEntityRole">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtHospitalName">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtEntityCity">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtEntityCommunity">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblName">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Name:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtName">
+                </Component>
+              </SubComponents>
             </Container>
           </SubComponents>
         </Container>
